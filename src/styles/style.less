@@ -1,0 +1,209 @@
+@import "base.less";
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    color: rgb(224, 224, 224);
+}
+::-webkit-input-placeholder {
+    color: rgb(224, 224, 224);
+}
+.pager {
+    margin-top: 10px;
+}
+.data-control {
+    margin: 10px 0;
+}
+.filter-wrap {
+    margin-bottom: 10px;
+    padding-right: 2%;
+    .ivu-form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .ivu-form-item {
+        flex: none;
+        min-width: 33.3%;
+        margin-bottom: 10px;
+        .ivu-date-picker-rel {
+            min-width: 235px;
+            width: 100%;
+        }
+
+        &.submit {
+            width: 100%;
+        }
+    }
+}
+
+.store-qrcode-card {
+    width: 375px;
+    padding-bottom: 80px;
+
+    dt {
+        color: #fff;
+        font-size: 40px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font-family: "Microsoft Yahei";
+    }
+    dd {
+        background-color: #fff;
+        padding-top: 40px;
+
+        .qrcode__wrap {
+            margin: 40px 55px;
+            border: 2px solid #fff;
+            position: relative;
+            width: 264px;
+            height: 264px;
+            box-sizing: content-box;
+
+            .after {
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                width: 56px;
+                height: 56px;
+                border-width: 9px 0 0 9px;
+                border-style: solid;
+                box-sizing: border-box;
+                display: block;
+            }
+            .before {
+                position: absolute;
+                bottom: -2px;
+                right: -2px;
+                width: 56px;
+                height: 56px;
+                border-width: 0 9px 9px 0;
+                border-style: solid;
+                box-sizing: border-box;
+                display: block;
+            }
+            .qrcode {
+                width: 168px;
+                height: 168px;
+                position: absolute;
+                overflow: hidden;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #fff;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                .qrcode__logo {
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            font-weight: normal;
+            font-family: "Microsoft Yahei";
+        }
+        h3 {
+            font-size: 18px;
+            text-align: center;
+            font-weight: normal;
+            font-family: "微软雅黑";
+        }
+    }
+}
+.qrcode__wrap {
+    margin: 20px auto;
+    border: 2px solid rgb(68, 103, 168);
+    position: relative;
+    width: 264px;
+    height: 264px;
+    box-sizing: content-box;
+
+    .after {
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        width: 56px;
+        height: 56px;
+        border-width: 9px 0 0 9px;
+        border-style: solid;
+        border-color: rgb(68, 103, 168);
+        box-sizing: border-box;
+        display: block;
+    }
+    .before {
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+        width: 56px;
+        height: 56px;
+        border-width: 0 9px 9px 0;
+        border-style: solid;
+        border-color: rgb(68, 103, 168);
+        box-sizing: border-box;
+        display: block;
+    }
+    .qrcode {
+        width: 256px;
+        height: 256px;
+        position: absolute;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+        .qrcode__logo {
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+.icons {
+    text-align: center;
+    padding-top: 40px;
+    i {
+        width: 46px;
+        height: 46px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        margin: 0 5px;
+
+        &.icons__wechat {
+            background-image: url("../images/pay-channel-icon/wechat.png");
+        }
+        &.icons__alipay {
+            background-image: url("../images/pay-channel-icon/alipay.png");
+        }
+        &.icons__unionpay {
+            background-image: url("../images/pay-channel-icon/unionpay.png");
+        }
+    }
+}
+.ivu-input[disabled] {
+    background-color: #fff;
+    opacity: 1;
+    cursor: not-allowed;
+    color: #495060;
+}
+.ivu-select-input[disabled] {
+    cursor: not-allowed;
+    color: #495060;
+}
+.ivu-table-expanded-cell {
+    padding: 20px 0px !important;
+}

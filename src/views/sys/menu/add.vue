@@ -1,0 +1,148 @@
+
+<template>
+    <Card>
+        <p slot="title">
+            新增菜单
+        </p>
+        <Form 
+            style="max-width: 800px;" 
+            ref="form" 
+            method="post" 
+            @submit.prevent.native="submit" 
+            :model="form" 
+            :label-width="120" 
+            label-position="right"
+            :rules="rules">
+            <FormItem label="菜单类别" prop="types" >
+                <menu-type-selector v-model="form.types"></menu-type-selector>
+            </FormItem>
+            <FormItem label="菜单编码" prop="code" >
+                <Input v-model="form.code"></Input>
+            </FormItem>
+            <FormItem label="菜单名称" prop="name" >
+                <Input v-model="form.name"></Input>
+            </FormItem>
+            <FormItem label="图标" prop="image">
+                <Input v-model="form.image">
+                    <Icon :type="form.image" slot="append"></Icon>
+                </Input>
+            </FormItem>
+            <FormItem label="父菜单名称" prop="parentId">
+                <menu-selector v-model="form.parentId"></menu-selector>
+            </FormItem>
+            <FormItem label="菜单URL" prop="url" >
+                <Input v-model="form.url"></Input>
+            </FormItem>
+            <FormItem label="菜单排序" prop="rank" >
+                <Input v-model="form.rank"></Input>
+            </FormItem>
+            <FormItem label="功能按钮" :style="{ width: '450px' }">
+                <Row v-for="(fun, index) in form.functions" 
+                    v-if="form.functions.length > 0" 
+                    :key="index">
+                    <Col span="9">
+                        <FormItem :prop="'functions[' + index + '].name'" :rules="{ required: true, trigger: 'blur'}" :show-message="false">
+                            <Input type="text" size="small" v-model.trim="fun.name" placeholder="功能说明...">
+                            </Input>
+                        </FormItem>
+                    </Col>
+                    <Col span="9" offset="1">
+                        <FormItem :prop="'functions[' + index + '].code'" :rules="{ required: true, trigger: 'blur'}" :show-message="false">
+                            <Input type="text" size="small" v-model.trim="fun.code" placeholder="功能编码（字母、-）">
+                            </Input>
+                        </FormItem>
+                    </Col>
+                    <Col span="4" offset="1">
+                        <Button type="ghost" size="small" @click="handlerFunctionRemove(index)">删除</Button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span="24">
+                        <Button size="small" type="primary" icon="plus-round" @click="handlerFunctionAdd">新增功能</Button>
+                    </Col>
+                </Row>  
+            </FormItem>
+            <FormItem label="分配给角色" prop="roleIds">
+                <manager-role-selector v-model="form.roleIds"></manager-role-selector>
+            </FormItem>
+            <FormItem>
+                <Button type="primary" :loading="loading" html-type="submit">提交</Button>
+            </FormItem>
+        </Form>
+    </Card>
+</template>
+
+<script>
+import managerRoleSelector from "components/manager-role-selector";
+import menuSelector from "components/menu-selector";
+import menuTypeSelector from "components/menu-type-selector";
+import { addOrUpdateMenu, getMenuDetail } from "@/actions/sys";
+import { validateData } from "./validate";
+import { closeCurrentErrPage } from "@/constants/constant";
+let defaultForm = {
+    code: "",
+    name: "",
+    image: "",
+    url: "",
+    types: "1",
+    rank: "1",
+    parentId: "",
+    roleIds: [],
+    functions: []
+};
+export default {
+    name: "sys-menu-add",
+    data() {
+        return {
+            loading: false,
+            form: defaultForm,
+            rules: validateData
+        };
+    },
+    methods: {
+        handlerFunctionAdd() {
+            this.form.functions.push({
+                code: "",
+                name: ""
+            });
+        },
+        handlerFunctionRemove(index) {
+            // 为了提高效率，没填内容的项可直接删除
+            if (
+                this.form.functions[index].name &&
+                this.form.functions[index].code
+            ) {
+                this.$lf.confirm("确认要删除吗？", () => {
+                    this.form.functions.splice(index, 1);
+                });
+            } else {
+                this.form.functions.splice(index, 1);
+            }
+        },
+        submit(e) {
+            this.$refs.form.validate(valid => {
+                if (valid) {
+                    this.loading = true;
+                    let formData = this.form;
+                    addOrUpdateMenu(formData).then(
+                        res => {
+                            this.loading = false;
+                            this.$refs.form.resetFields();
+                            this.$lf.message("添加成功", "success");
+                            closeCurrentErrPage(this, "sys-menu");
+                        },
+                        () => {
+                            this.loading = false;
+                        }
+                    );
+                }
+            });
+        }
+    },
+    components: {
+        managerRoleSelector,
+        menuSelector,
+        menuTypeSelector
+    }
+};
+</script>

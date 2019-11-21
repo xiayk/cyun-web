@@ -1,0 +1,187 @@
+.nopadding{
+	padding: 0;
+	margin: 0;
+}
+.font-size(@fontSize: @baseFontSize) {
+	font-size: @fontSize * 1px;
+}
+.line-height(@fontSize, @px) {
+	line-height: @px / @fontSize;
+}
+.img-responsive(@display: block) {
+  display: @display;
+  width: 100% \9; // Force IE10 and below to size SVG images correctly
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+.img-center(@width, @height) {
+  position: relative;
+  // make parent element width/height divisible by 2
+  width: floor((@width + 0.5) / 2) * 2;
+  height: floor((@height + 0.5) / 2) * 2;
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// 多行截断
+.vertical-clamp(@line: 2) {
+  overflow : hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;  // 有些示例里需要定义该属性，实际可省略
+}
+// 单行阶段
+.single-clamp() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 大段文本字体及行距
+.text(@fontSize: @baseFontSize) {
+	.font-size(@fontSize);
+	.line-height(@fontSize, 26);
+  color: @textGreyColor;
+  font-weight: 300;
+
+	a {
+		text-decoration: none;
+		border-bottom: 1px solid @textGreyColor;
+
+		&:focus,
+		&:hover{
+			color: @linkRedColor;
+			border-bottom-color: @linkRedColor;
+		}
+		&:active{
+
+		}
+		&:visited{
+
+		}
+
+    img {
+       display:block;
+    }
+	}
+  u {
+		text-decoration: none;
+		border-bottom: 1px solid @textGreyColor;
+  }
+	pre {
+		.pre;
+
+    code {
+      background-color: #FFF5F5;
+      margin: -11px -20px -13px;
+      .code;
+      .font-size(14);
+      padding: 11px 20px 13px;
+      display: block;
+    }
+	}
+	code {
+		.code;
+	}
+	hr {
+		margin: 20px 0;
+	}
+	ol, ul {
+		padding-left: 2em;
+
+		li {
+			margin: 10px 0;
+		}
+	}
+  blockquote {
+    position: relative;
+    display: block;
+    padding: 64px 45px 35px 48px;
+    color: @textGreyColor;
+    margin: 20px 0;
+    .line-height(@baseFontSize, 26);
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      background: url("../images/i_quote.png") left top no-repeat;
+      background-size: contain;
+      width: 48px;
+      height: 40px;
+    }
+  }
+  img{
+    max-width: 100%;
+    min-width: 100%;
+  }
+  p {
+    margin: 30px 0;
+	  .line-height(@fontSize, 26);
+  }
+}
+.pre {
+	background-color: #24242E;
+	.font-size(@preFontSize);
+	.line-height(@preFontSize, 24);
+	color: @preColor;
+	padding: 11px 20px 13px;
+	white-space: normal;
+	break-word: break-all;
+	letter-spacing: 0px;
+	// font-family: "PingFangSC-Regular";
+}
+.code {
+	background-color: rgba(255, 234, 234, 1);
+	.font-size(@codeFontSize);
+	.line-height(@codeFontSize, 24);
+	color: @redColor;
+	padding: 1px 5px;
+	font-family: "PingFangSC-Regular";
+}
+// flex
+.flex-center{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+}
+.flex-between{
+  justify-content:space-between;
+}
+.flex-start{
+  justify-content:flex-start;
+}
+// 清除浮动
+.clearfix{
+  &:after{
+    content: ' ';
+    overflow: hidden;
+    clear: both;
+    font-size: 0;
+    display: block;
+  }
+}
+.size(@width, @height: @width){
+  width: @width * 1px;
+  height: @height * 1px;
+}
+.password-input {
+  -webkit-text-security: disc;
+}
