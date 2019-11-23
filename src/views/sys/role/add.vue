@@ -1,4 +1,3 @@
-
 <template>
     <Card>
         <p slot="title">
@@ -13,14 +12,20 @@
             :label-width="120" 
             label-position="right"
             :rules="rules">
-            <FormItem label="角色名称" prop="name">
-                <Input v-model="form.name" placeholder="请以『ROLE_』开头"></Input>
+            <FormItem label="角色名称" prop="1">
+                <Input v-model="form.roleName" placeholder="请以『ROLE_』开头"></Input>
             </FormItem>
-            <FormItem label="备注" prop="remark">
-                <Input v-model="form.remark"></Input>
+            <FormItem label="角色Code" prop="n1ame">
+                <Input v-model="form.roleCode" placeholder="请以『ROLE_』开头"></Input>
             </FormItem>
-            <FormItem label="权限配置" prop="menuIds">
-                <menu-tree-selector :role-id="$route.params.id" :menu-ids.sync="form.menuIds" :function-ids.sync="form.functionIds"></menu-tree-selector>
+            <FormItem label="角色状态" prop="na1me">
+                <Input v-model="form.status" placeholder="请以『ROLE_』开头"></Input>
+            </FormItem>
+            <FormItem label="类型" prop="remar2k">
+                <Input v-model="form.type"></Input>
+            </FormItem>
+            <FormItem label="权限配置" prop="me2nuIds">
+                <menu-tree-selector :role-id="$route.params.id" :menu-ids.sync="form.menuIds"></menu-tree-selector>
             </FormItem>
             <FormItem>
                 <Button type="primary" :loading="loading" html-type="submit">提交</Button>
@@ -34,10 +39,11 @@ import menuTreeSelector from "components/menu-tree-selector";
 import { addOrUpdateRole, getRoleDetail } from "@/actions/sys";
 import { closeCurrentErrPage } from "@/constants/constant";
 let defaultForm = {
-    name: "",
-    remark: "",
-    menuIds: [],
-    functionIds: []
+    roleName: "",
+    roleCode: "",
+    status: 0,
+    type: 0,
+    menuIds: []
 };
 export default {
     name: "sys-role-add",
@@ -59,8 +65,10 @@ export default {
             }
         };
     },
+    
     methods: {
         submit(e) {
+            console.log(this.form.menuIds)
             this.$refs.form.validate(valid => {
                 if (valid) {
                     this.loading = true;

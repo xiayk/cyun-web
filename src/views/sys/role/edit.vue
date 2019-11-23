@@ -1,4 +1,3 @@
-
 <template>
     <Card>
         <p slot="title">
@@ -14,7 +13,7 @@
             label-position="right"
             :rules="rules">
             <FormItem label="角色名称" prop="name">
-                <Input v-model="form.name" placeholder="请以『ROLE_』开头"></Input>
+                <Input v-model="form.roleName" placeholder="请以『ROLE_』开头"></Input>
             </FormItem>
             <FormItem label="备注" prop="remark">
                 <Input v-model="form.remark"></Input>

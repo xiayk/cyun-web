@@ -72,7 +72,7 @@ export function getMenus() {
  * @param {*} params
  */
 export function getManagers(params) {
-    return $axios.post("/sys/manager/list", params);
+    return $axios.post("/users/list", params);
 }
 
 /**
@@ -84,7 +84,7 @@ export function addOrUpdateManager(params) {
     if (params.id) {
         url = "/sys/manager/update";
     } else {
-        url = "/sys/manager/add";
+        url = "/users/addOrUpdate";
     }
     return $axios.post(url, params);
 }
@@ -122,7 +122,7 @@ export function getManagerDetail(id) {
  * 获取系统菜单列表
  */
 export function getSysMenuList(params) {
-    return $axios.post("/sys/menu/list", params);
+    return $axios.post("/menu/list", params);
 }
 
 /**
@@ -131,22 +131,23 @@ export function getSysMenuList(params) {
 export function addOrUpdateMenu(params) {
     let url = "";
     if (params.id) {
-        url = "/sys/menu/update";
+        url = "/menu/edit";
     } else {
-        url = "/sys/menu/add";
+        url = "/menu/save";
     }
     return $axios.post(url, params);
 }
+
 /**
  * 获取菜单信息
  * @param {*} id
  */
 export function getMenuDetail(id) {
-    return $axios.post(`/sys/menu/detail/${id}`);
+    return $axios.post(`/menu/detail/${id}`);
 }
 
 export function deleteMenuById(menuId) {
-    return $axios.post(`/sys/menu/delete/${menuId}`);
+    return $axios.post(`/menu/del/${menuId}`);
 }
 
 /**
@@ -204,7 +205,7 @@ export function getRoleDetail(id) {
  * @param {*} roleId
  */
 export function deleteRoleById(roleId) {
-    return $axios.post(`/sys/role/delete/${roleId}`);
+    return $axios.post(`/role/del/${roleId}`);
 }
 /**
  * 获取首页review

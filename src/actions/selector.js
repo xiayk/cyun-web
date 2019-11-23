@@ -38,9 +38,9 @@ export function getSysMenuSelect(params = param) {
 export function getSysMenuTree(roleid) {
     let url = "";
     if (roleid) {
-        url = `/sys/menu/tree/${roleid}`;
+        url = `/menu/tree/${roleid}`;
     } else {
-        url = `/sys/menu/tree`;
+        url = `/menu/tree`;
     }
     return $axios.post(url);
 }

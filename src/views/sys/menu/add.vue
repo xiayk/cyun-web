@@ -13,28 +13,25 @@
             :label-width="120" 
             label-position="right"
             :rules="rules">
-            <FormItem label="菜单类别" prop="types" >
-                <menu-type-selector v-model="form.types"></menu-type-selector>
+            <FormItem label="菜单编码" prop="coe" >
+                <Input v-model="form.menuCode"></Input>
             </FormItem>
-            <FormItem label="菜单编码" prop="code" >
-                <Input v-model="form.code"></Input>
+            <FormItem label="菜单名称" prop="nme" >
+                <Input v-model="form.menuName"></Input>
             </FormItem>
-            <FormItem label="菜单名称" prop="name" >
-                <Input v-model="form.name"></Input>
-            </FormItem>
-            <FormItem label="图标" prop="image">
-                <Input v-model="form.image">
-                    <Icon :type="form.image" slot="append"></Icon>
+            <FormItem label="图标" prop="imag">
+                <Input v-model="form.menuIco">
+                    <Icon :type="form.menuIco" slot="append"></Icon>
                 </Input>
             </FormItem>
-            <FormItem label="父菜单名称" prop="parentId">
+            <FormItem label="父菜单名称" prop="arentId">
                 <menu-selector v-model="form.parentId"></menu-selector>
             </FormItem>
-            <FormItem label="菜单URL" prop="url" >
-                <Input v-model="form.url"></Input>
+            <FormItem label="菜单URL" prop="ur" >
+                <Input v-model="form.menuUrl"></Input>
             </FormItem>
-            <FormItem label="菜单排序" prop="rank" >
-                <Input v-model="form.rank"></Input>
+            <FormItem label="菜单排序" prop="ank" >
+                <Input v-model="form.sort"></Input>
             </FormItem>
             <FormItem label="功能按钮" :style="{ width: '450px' }">
                 <Row v-for="(fun, index) in form.functions" 
@@ -87,8 +84,7 @@ let defaultForm = {
     types: "1",
     rank: "1",
     parentId: "",
-    roleIds: [],
-    functions: []
+    roleIds: []
 };
 export default {
     name: "sys-menu-add",

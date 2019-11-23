@@ -43,18 +43,19 @@ export default {
             columns: [
                 {
                     key: "id",
-                    title: "角色编号"
+                    title: "角色编号",
+                    width: 250,
                 },
                 {
-                    key: "remark",
+                    key: "roleName",
                     title: "角色名称"
                 },
                 {
-                    key: "typesDesc",
+                    key: "type",
                     title: "角色类型"
                 },
                 {
-                    key: "createdAt",
+                    key: "createDate",
                     title: "创建时间"
                 },
                 {
@@ -138,7 +139,7 @@ export default {
                 res => {
                     this.loading = false;
                     this.data = res.data.data;
-                    this.total = res.data.tatle;
+                    this.total = res.data.total;
                 },
                 err => {
                     this.loading = false;

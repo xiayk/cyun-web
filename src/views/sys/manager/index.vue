@@ -90,7 +90,7 @@ import {
 import { ApiUrl } from "@/constants/constant";
 import Cookies from "js-cookie";
 export default {
-    name: "sys-manager",
+    name: "sys-user",
     data() {
         return {
             uploadConfig: {
@@ -104,39 +104,23 @@ export default {
             loading: false,
             columns: [
                 {
-                    key: "nickName",
+                    key: "userName",
                     title: "姓名"
                 },
                 {
-                    key: "mobile",
-                    title: "手机号"
+                    key: "account",
+                    title: "登录账号"
                 },
                 {
-                    key: "userName",
-                    title: "登录账号",
-                    width: 150
+                    key: "createDate",
+                    title: "创建时间"
                 },
                 {
-                    key: "roleNames",
-                    title: "所属角色",
-                    render: (h, params) => {
-                        return h("span", params.row.roleNames.join("|"));
-                    }
+                    key: "phone",
+                    title: "电话号码"
                 },
                 {
-                    key: "agentName",
-                    title: "所属渠道"
-                },
-                {
-                    key: "merchantName",
-                    title: "所属商户"
-                },
-                {
-                    key: "storeName",
-                    title: "所属门店"
-                },
-                {
-                    key: "stateDesc",
+                    key: "statue",
                     title: "状态"
                 },
                 {
@@ -287,8 +271,8 @@ export default {
             this.loading = true;
             getManagers(this.filter).then(res => {
                 this.loading = false;
-                this.data = res.data.rows;
-                this.total = res.data.total;
+                this.data = res.data.data;
+                this.total = res.data.total
             });
         },
         handleFilter() {

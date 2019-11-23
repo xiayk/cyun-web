@@ -37,31 +37,29 @@ export default {
                     render: (h, params) => {
                         return h("Icon", {
                             props: {
-                                type: params.row.image
+                                type: params.row.menuIco
                             }
                         });
                     }
                 },
                 {
-                    key: "name",
+                    key: "id",
+                    title: "菜单ID"
+                },
+                {
+                    key: "menuName",
                     title: "菜单名称"
                 },
                 {
-                    key: "code",
+                    key: "menuCode",
                     title: "菜单编码"
                 },
                 {
-                    key: "parentName",
-                    title: "父级菜单名称"
+                    key: "parentId",
+                    title: "父级菜单ID"
                 },
                 {
-                    key: "url",
-                    title: "菜单URL",
-                    ellipsis: true,
-                    width: 150
-                },
-                {
-                    key: "rank",
+                    key: "sort",
                     title: "排序",
                     width: 70
                 },
@@ -137,7 +135,7 @@ export default {
             this.loading = true;
             getSysMenuList(this.filter).then(res => {
                 this.loading = false;
-                this.data = res.data.rows;
+                this.data = res.data.data;
                 this.total = res.data.total;
             });
         },
