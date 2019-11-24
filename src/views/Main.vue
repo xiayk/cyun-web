@@ -189,6 +189,7 @@ export default {
     },
     mounted() {
         this.init();
+        console.log(this.$store.state.app,1)
     },
     created() {
         // 显示打开的页面的列表

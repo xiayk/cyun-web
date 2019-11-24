@@ -12,11 +12,11 @@
             :label-width="120" 
             label-position="right"
             :rules="rules">
-            <FormItem label="角色名称" prop="name">
-                <Input v-model="form.roleName" placeholder="请以『ROLE_』开头"></Input>
+            <FormItem label="角色名称" prop="roleName">
+                <Input v-model="form.roleName" placeholder="请输入角色名称"></Input>
             </FormItem>
-            <FormItem label="备注" prop="remark">
-                <Input v-model="form.remark"></Input>
+            <FormItem label="角色Code" prop="roleCode">
+                <Input v-model="form.roleCode"></Input>
             </FormItem>
             <FormItem label="权限配置" prop="menuIds">
                 <menu-tree-selector :role-id="$route.params.id" :menu-ids.sync="form.menuIds" :function-ids.sync="form.functionIds"></menu-tree-selector>
@@ -33,7 +33,7 @@ import menuTreeSelector from "components/menu-tree-selector";
 import { addOrUpdateRole, getRoleDetail } from "@/actions/sys";
 import { closeCurrentErrPage } from "@/constants/constant";
 let defaultForm = {
-    name: "",
+    roleName: "",
     remark: "",
     menuIds: [],
     functionIds: []

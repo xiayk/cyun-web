@@ -113,14 +113,15 @@ export default {
                 },
                 {
                     key: "createDate",
-                    title: "创建时间"
+                    title: "创建时间",
+                    width: 160
                 },
                 {
                     key: "phone",
                     title: "电话号码"
                 },
                 {
-                    key: "statue",
+                    key: "status",
                     title: "状态"
                 },
                 {
@@ -129,7 +130,6 @@ export default {
                     width: 200,
                     render: (h, params) => {
                         return h("div", [
-                            params.row.checkFlag && [
                                 h(
                                     "Button",
                                     {
@@ -183,8 +183,7 @@ export default {
                                         }
                                     },
                                     "删除"
-                                )
-                            ],
+                                ),
                             h(
                                 "Button",
                                 {

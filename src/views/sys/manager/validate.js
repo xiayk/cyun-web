@@ -13,7 +13,7 @@ const validePassword = (rule, value, callback) => {
 export let validateData = {
     userName: { required: true, message: "请填写登录名称", trigger: "blur" },
     nickName: { required: true, message: "请填写员姓名", trigger: "blur" },
-    mobile: [
+    phone: [
         { required: true, message: "请填写手机号", trigger: "blur" },
         { validator: validePhone, trigger: "blur" }
     ],
@@ -25,5 +25,5 @@ export let validateData = {
         { required: true, message: "请填写登录密码", trigger: "blur" },
         { validator: validePassword, trigger: "blur" }
     ],
-    state: { required: true, message: "请选择状态", trigger: "change" }
+    status: { required: true, message: "请选择状态", trigger: "change" }
 };

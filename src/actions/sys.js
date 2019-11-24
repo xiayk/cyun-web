@@ -44,10 +44,10 @@ export function changePWd(params) {
 
 /**
  * 重置操作员密码
- * @param {*} managerId
+ * @param {*} userId
  */
-export function resetManagerPwdById(managerId) {
-    return $axios.post(`/sys/manager/password/reset/${managerId}`);
+export function resetManagerPwdById(userId) {
+    return $axios.post(`/users/reset/${userId}`);
 }
 
 /**
@@ -80,12 +80,7 @@ export function getManagers(params) {
  * @param {*} params
  */
 export function addOrUpdateManager(params) {
-    let url = "";
-    if (params.id) {
-        url = "/sys/manager/update";
-    } else {
-        url = "/users/addOrUpdate";
-    }
+    let url = "/users/addOrUpdate";
     return $axios.post(url, params);
 }
 
@@ -197,7 +192,7 @@ export function addOrUpdateRole(params) {
  * @param {*} id
  */
 export function getRoleDetail(id) {
-    return $axios.post(`/sys/role/detail/${id}`);
+    return $axios.post(`/role/detail/${id}`);
 }
 
 /**

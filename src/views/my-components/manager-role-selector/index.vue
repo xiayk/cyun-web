@@ -38,10 +38,10 @@ export default {
     methods: {
         getSysRoles() {
             getSysRoles().then(res => {
-                this.data = res.data.rows.map(item => {
+                this.data = res.data.map(item => {
                     return {
-                        value: item.id,
-                        label: item.remark
+                        value: item.roleId,
+                        label: item.roleName
                     };
                 });
             });

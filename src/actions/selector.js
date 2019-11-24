@@ -12,7 +12,7 @@ const param = {
  * @param {*} params
  */
 export function getSysRoles(params = param) {
-    return $axios.post("/sys/role/user/list", params);
+    return $axios.post("/role/tree", params);
 }
 
 /**

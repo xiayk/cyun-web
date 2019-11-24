@@ -21,31 +21,19 @@
       <FormItem label="确认密码" prop="repeatPassword">
         <Input type="password" v-model="form.repeatPassword" placeholder="请再次输入密码"></Input>
       </FormItem>
-      <FormItem label="员工姓名" prop="nickName">
-        <Input v-model="form.nickName" placeholder="员工姓名"></Input>
+      <FormItem label="姓名" prop="nickName">
+        <Input v-model="form.nickName" placeholder="姓名"></Input>
       </FormItem>
       <FormItem label="手机号码" prop="mobile">
         <Input v-model="form.mobile" placeholder="手机号码"></Input>
       </FormItem>
-      <!-- <FormItem label="身份证号" prop="certificateNo" >
-                <Input v-model="form.certificateNo" placeholder="身份证号"></Input>
-      </FormItem>-->
       <FormItem label="所属角色" prop="roleIds">
         <manager-role-selector isSingle v-model="form.roleIds"></manager-role-selector>
       </FormItem>
-      <FormItem label="所属门店" v-if="storeList.length">
-        <CheckboxGroup v-model="form.storeCodes" size="small">
-          <Checkbox
-            :label="item.code"
-            v-for="item in storeList"
-            :key="item.value"
-          >{{ item.storeName }}</Checkbox>
-        </CheckboxGroup>
-      </FormItem>
-      <FormItem label="状态" prop="state">
-        <RadioGroup v-model="form.state">
-          <Radio label="-1">冻结</Radio>
-          <Radio label="1">启用</Radio>
+      <FormItem label="状态" prop="status">
+        <RadioGroup v-model="form.status">
+          <Radio label="1">禁用</Radio>
+          <Radio label="0">启用</Radio>
         </RadioGroup>
       </FormItem>
       <FormItem>
@@ -69,10 +57,8 @@ let defaultForm = {
     phone: "",
     password: "",
     repeatPassword: "",
-    nickName: "",
-    state: "1",
-    roleIds: [],
-    storeCodes: []
+    status: 0,
+    roleId: ""
 };
 export default {
     name: "sys-manager-add",
@@ -88,12 +74,11 @@ export default {
             loading: false,
             form: {
                 userName: "",
-                mobile: "",
+                account: "",
                 password: "",
                 repeatPassword: "",
-                nickName: "",
-                state: "1",
-                roleIds: [],
+                status: 0,
+                roleId: "",
                 storeCodes: []
             },
             storeList: [],
