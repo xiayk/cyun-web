@@ -9,7 +9,7 @@ export const ApiUrl =
     env === "demo" ?
     "http://39.105.201.64:8087" :
     env === "production" ?
-    "https://xlink.91xft.cn" //https://xlink.91xft.cn/
+    "http://39.105.201.64:8087" //https://xlink.91xft.cn/
     :
     "http://120.77.147.241:10000/mock/59db10974720a62cc0517952";
 
