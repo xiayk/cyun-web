@@ -18,7 +18,7 @@ fs.open("./build/env.js", "w", function(err, fd) {
 
 module.exports = merge(webpackBaseConfig, {
     output: {
-        publicPath: "/cyun-web/dist/", // 修改 https://iv...admin 这部分为你的服务器域名
+        publicPath: "http://xiayk.gitee.io/cyun-web/dist/", // 修改 https://iv...admin 这部分为你的服务器域名
         filename: "[name].[hash].js",
         chunkFilename: "[name].[hash].chunk.js"
     },
@@ -76,7 +76,7 @@ module.exports = merge(webpackBaseConfig, {
             }
         ),
         new HtmlWebpackPlugin({
-            title: "云创 v" + package.version,
+            title: "创云 v" + package.version,
             favicon: "./favicon.ico",
             filename: "../index.html",
             template: "!!ejs-loader!./src/template/index.ejs",
