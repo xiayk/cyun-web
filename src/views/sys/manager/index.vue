@@ -122,7 +122,15 @@ export default {
                 },
                 {
                     key: "status",
-                    title: "状态"
+                    title: "状态",
+                    render: (h, params) => {
+                        let re = "";
+                        if (params.row.status === 0) {
+                            return h("div", "正常");
+                        } else if (params.row.status === 1) {
+                            return h("div", "禁用");
+                        }
+                    }
                 },
                 {
                     type: "action",

@@ -12,8 +12,8 @@
       label-position="right"
       :rules="rules"
     >
-      <FormItem label="登录账号" prop="userName">
-        <Input v-model="form.userName" placeholder="登录账号"/>
+      <FormItem label="登录账号" prop="account">
+        <Input v-model="form.account" placeholder="登录账号"/>
       </FormItem>
       <FormItem label="登录密码" prop="password">
         <Input type="password" v-model="form.password" placeholder="请输入6-18位字符和字母组合的密码"></Input>
@@ -22,10 +22,10 @@
         <Input type="password" v-model="form.repeatPassword" placeholder="请再次输入密码"></Input>
       </FormItem>
       <FormItem label="姓名" prop="nickName">
-        <Input v-model="form.nickName" placeholder="姓名"></Input>
+        <Input v-model="form.userName" placeholder="姓名"></Input>
       </FormItem>
       <FormItem label="手机号码" prop="mobile">
-        <Input v-model="form.mobile" placeholder="手机号码"></Input>
+        <Input v-model="form.phone" placeholder="手机号码"></Input>
       </FormItem>
       <FormItem label="所属角色" prop="roleIds">
         <manager-role-selector isSingle v-model="form.roleIds"></manager-role-selector>
@@ -55,9 +55,9 @@ import { validateData } from "./validate";
 let defaultForm = {
     userName: "",
     phone: "",
+    account: "",
     password: "",
     repeatPassword: "",
-    status: 0,
     roleId: ""
 };
 export default {

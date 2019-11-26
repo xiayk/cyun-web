@@ -5,9 +5,9 @@ import store from "../store";
 import env from "../../build/env";
 export const ApiUrl =
     env === "development" ?
-    "http://localhost:8080" :
+    "http://39.105.201.64:8087" :
     env === "demo" ?
-    "http://localhost:8080" :
+    "http://39.105.201.64:8087" :
     env === "production" ?
     "https://xlink.91xft.cn" //https://xlink.91xft.cn/
     :

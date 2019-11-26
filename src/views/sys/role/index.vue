@@ -12,7 +12,7 @@
                 :label-width="120"
             >
                 <FormItem label="角色名称" prop="name">
-                    <Input v-model="filter.remark"></Input>
+                    <Input v-model="filter.roleName"></Input>
                 </FormItem>
                 <FormItem class="submit">
                     <Button type="primary" html-type="submit">筛选</Button>
@@ -44,7 +44,7 @@ export default {
                 {
                     key: "id",
                     title: "角色编号",
-                    width: 250,
+                    width: 260
                 },
                 {
                     key: "roleName",
@@ -52,11 +52,33 @@ export default {
                 },
                 {
                     key: "type",
-                    title: "角色类型"
+                    title: "角色类型",
+                    render: (h, params) => {
+                        let re = "";
+                        console.log(params)
+                        if (params.row.type === 0) {
+                            return h("div", "正常");
+                        } else if (params.row.type === 1) {
+                            return h("div", "禁用");
+                        }
+                    }
                 },
                 {
                     key: "createDate",
                     title: "创建时间"
+                },
+                {
+                    key: "status",
+                    title: "角色状态",
+                    render: (h, params) => {
+                        let re = "";
+                        console.log(params)
+                        if (params.row.type === 0) {
+                            return h("div", "正常");
+                        } else if (params.row.type === 1) {
+                            return h("div", "禁用");
+                        }
+                    }
                 },
                 {
                     type: "action",
@@ -118,14 +140,10 @@ export default {
                 }
             ],
             filter: {
-                createDate: null,
-                createDate1: null,
                 limit: 10,
                 offset: 0,
                 roleCode: null,
-                roleId: null,
                 roleName: null,
-                type: null,
                 userId: null
             },
             data: [],

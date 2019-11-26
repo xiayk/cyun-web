@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import { ApiUrl } from "../constants/constant";
 let util = {};
 util.title = function(title) {
-    title = title || "云创 v" + packjson.version;
+    title = title || "创云 v" + packjson.version;
     window.document.title = title;
 };
 
