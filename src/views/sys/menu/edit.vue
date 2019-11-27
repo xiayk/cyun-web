@@ -13,28 +13,28 @@
             :label-width="120" 
             label-position="right"
             :rules="rules">
-            <FormItem label="菜单类别" prop="types" >
+            <!-- <FormItem label="菜单类别" prop="types" >
                 <menu-type-selector v-model="form.types"></menu-type-selector>
+            </FormItem> -->
+            <FormItem label="菜单编码" prop="menuCode" >
+                <Input v-model="form.menuCode"></Input>
             </FormItem>
-            <FormItem label="菜单编码" prop="code" >
-                <Input v-model="form.code"></Input>
+            <FormItem label="菜单名称" prop="menuName" >
+                <Input v-model="form.menuName"></Input>
             </FormItem>
-            <FormItem label="菜单名称" prop="name" >
-                <Input v-model="form.name"></Input>
-            </FormItem>
-            <FormItem label="图标" prop="image">
-                <Input v-model="form.image">
-                    <Icon :type="form.image" slot="append"></Icon>
+            <FormItem label="图标" prop="menuIco">
+                <Input v-model="form.menuIco">
+                    <Icon :type="form.menuIco" slot="append"></Icon>
                 </Input>
             </FormItem>
             <FormItem label="父菜单名称" prop="parentId">
                 <menu-selector v-model="form.parentId"></menu-selector>
             </FormItem>
-            <FormItem label="菜单URL" prop="url" >
-                <Input v-model="form.url"></Input>
+            <FormItem label="菜单URL" prop="menuUrl" >
+                <Input v-model="form.menuUrl"></Input>
             </FormItem>
             <FormItem label="菜单排序" :required="true" >
-                <Input v-model="form.rank"></Input>
+                <Input v-model="form.sort"></Input>
             </FormItem>
             <FormItem label="功能按钮" :style="{ width: '450px' }">
                 <Row v-for="(fun, index) in form.functions" 
@@ -75,19 +75,19 @@
 <script>
 import managerRoleSelector from "components/manager-role-selector";
 import menuSelector from "components/menu-selector";
-import menuTypeSelector from "components/menu-type-selector";
+//import menuTypeSelector from "components/menu-type-selector";
 import { addOrUpdateMenu, getMenuDetail } from "@/actions/sys";
 import { closeCurrentErrPage } from "@/constants/constant";
 import { validateData } from "./validate";
 let defaultForm = {
     code: "",
     name: "",
-    image: "",
     url: "",
     types: "1",
     rank: "1",
     parentId: "",
     roleIds: [],
+    menuId: '',
     functions: []
 };
 export default {
@@ -105,6 +105,7 @@ export default {
             if (this.form.id !== id) {
                 getMenuDetail(id).then(res => {
                     this.form = res.data;
+                    this.form.menuId = id;
                     // this.form.roleIds = this.form.roleList
                     //     .map((item, key) => {
                     //         if (item.checked) {
@@ -161,8 +162,8 @@ export default {
     },
     components: {
         managerRoleSelector,
-        menuSelector,
-        menuTypeSelector
+        menuSelector
+        //menuTypeSelector
     }
 };
 </script>

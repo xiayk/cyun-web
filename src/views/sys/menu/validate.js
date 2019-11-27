@@ -4,22 +4,22 @@ export let validateData = {
         message: "请选择菜单类别",
         trigger: "blur"
     },
-    code: {
+    menuCode: {
         required: true,
         message: "请选择菜单编码",
         trigger: "blur"
     },
-    name: {
+    menuName: {
         required: true,
         message: "请选择菜单名称",
         trigger: "blur"
     },
-    url: {
+    menuUrl: {
         required: true,
         message: "请选择菜单URL",
         trigger: "blur"
     },
-    rank: {
+    sort: {
         required: true,
         message: "请选择菜单排序",
         trigger: "blur"

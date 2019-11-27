@@ -34,19 +34,19 @@ export default {
     created() {
         this.init();
     },
-    methods: { 
+    methods: {
         init() {
-            if (this.roleId) {
-                getSysMenuTree(this.roleId).then(res => {
-                    this.data = res.data;
-                    this.formatTreeData(res.data);
-                });
-            } else {
-                getSysMenuTree().then(res => {
-                    this.data = res.data;
-                    this.formatTreeData(res.data);
-                });
-            }
+            // if (this.roleId) {
+            //     getSysMenuTree(this.roleId).then(res => {
+            //         this.data = res.data;
+            //         this.formatTreeData(res.data);
+            //     });
+            // } else {
+            getSysMenuTree().then(res => {
+                this.data = res.data;
+                this.formatTreeData(res.data);
+            });
+            // }
         },
         handleCheck(arr) {
             this.formatSelectData(arr);
@@ -60,7 +60,7 @@ export default {
                     if (v1.parentId === "0") {
                         menuIds.push(v1.id);
                         v1.childrens.forEach(v2 => {
-                            // if (v2.types === "1") {
+                            if (v2.types === "1") {
                                 menuIds.push(v2.id);
                                 // v2.nodes.forEach(v3 => {
                                 //     if (v3.types === "1") {
@@ -70,7 +70,7 @@ export default {
                                 //         functionIds.push(v3.id);
                                 //     }
                                 // });
-                            // }
+                            }
                             if (v2.types === "2") {
                                 functionIds.push(v2.id);
                             }
@@ -89,14 +89,9 @@ export default {
                 data.forEach(v1 => {
                     v1.title = v1.menuName;
                     v1.children = v1.childrens;
-                    if (
-                        this.currentFunctionIds.length ||
-                        this.currentMenuIds.length
-                    ) {
-                        if (
-                            this.currentFunctionIds.includes(v1.id) ||
-                            this.currentMenuIds.includes(v1.id)
-                        ) {
+                    console.log(this.currentMenuIds);
+                    if (this.currentMenuIds.length) {
+                        if (this.currentMenuIds.includes(v1.id)) {
                             v1.checked = true;
                         } else {
                             v1.checked = false;
@@ -120,6 +115,7 @@ export default {
         },
         "$props.menuIds"(val) {
             this.currentMenuIds = val;
+            console.log(this.currentMenuIds);
         },
         "$props.functionIds"(val) {
             this.currentFunctionIds = val;

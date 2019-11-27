@@ -40,7 +40,7 @@ export function getSysMenuTree(roleid) {
     if (roleid) {
         url = `/menu/tree/${roleid}`;
     } else {
-        url = `/menu/tree`;
+        url = `/menu/tree`; 
     }
     return $axios.post(url);
 }

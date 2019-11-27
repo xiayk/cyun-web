@@ -31,15 +31,15 @@
         <CheckboxGroup v-model="form.storeCodes" size="small">
           <Checkbox
             :label="item.code"
-            v-for="item in storeList"
+            v-for="item in storeList"`
             :key="item.value"
           >{{ item.storeName }}</Checkbox>
         </CheckboxGroup>
       </FormItem>
       <FormItem label="状态" prop="state">
-        <RadioGroup v-model="form.state">
-          <Radio label="-1">冻结</Radio>
-          <Radio label="1">启用</Radio>
+        <RadioGroup v-model="form.status">
+          <Radio label="1">冻结</Radio>
+          <Radio label="0">启用</Radio>
         </RadioGroup>
       </FormItem>
       <FormItem>

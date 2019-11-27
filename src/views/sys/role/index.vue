@@ -73,9 +73,9 @@ export default {
                     render: (h, params) => {
                         let re = "";
                         console.log(params)
-                        if (params.row.type === 0) {
+                        if (params.row.status === 0) {
                             return h("div", "正常");
-                        } else if (params.row.type === 1) {
+                        } else if (params.row.status === 1) {
                             return h("div", "禁用");
                         }
                     }
