@@ -19,16 +19,16 @@ export function getSysRoles(params = param) {
  * 获取系统菜单类别
  * @param {*} params
  */
-export function getSysMenuTypes(params = param) {
-    return $axios.post("/sys/menu/types", params);
+export function getSysMenuTypes() {
+    return $axios.post("/sys/menu/types");
 }
 
 /**
  * 获取可选父菜单
  * @param {*} params
  */
-export function getSysMenuSelect(params = param) {
-    return $axios.post("/sys/menu/select", params);
+export function getSysMenuSelect() {
+    return $axios.post("/menu/select/parent");
 }
 
 /**

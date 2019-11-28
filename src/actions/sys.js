@@ -11,6 +11,13 @@ export function login(params) {
     return $axios.post("/users/login", params);
 };
 
+/**
+ * 解锁
+ * @param {*} password 
+ */
+export function unlock(password) {
+    return $axios.post(`/users/lock/login/${password}`);
+};
 
 /**
  * 修改密码

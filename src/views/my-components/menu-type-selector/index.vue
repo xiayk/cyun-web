@@ -31,8 +31,8 @@ export default {
             getSysMenuTypes().then(res => {
                 this.data = res.data.map(item => {
                     return {
-                        value: item.value,
-                        label: item.desc
+                        value: item.id,
+                        label: item.menuName
                     };
                 });
             });

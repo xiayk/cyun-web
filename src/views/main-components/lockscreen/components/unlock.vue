@@ -28,6 +28,7 @@
 
 <script>
 import Cookies from 'js-cookie';
+import { unlock } from '@/actions/sys'
 export default {
     name: 'Unlock',
     data () {
@@ -51,7 +52,16 @@ export default {
     },
     methods: {
         validator () {
-            return true; // 你可以在这里写密码验证方式，如发起ajax请求将用户输入的密码this.password与数据库用户密码对比
+            if(this.password == ''){
+                this.$Message.error('请输入密码');
+                return false;
+            }
+            unlock(this.password).then(res => {
+                console.log(res.status == 200)
+                return res.status == 200;
+            }) 
+            return true;
+            // 你可以在这里写密码验证方式，如发起ajax请求将用户输入的密码this.password与数据库用户密码对比
         },
         handleClickAvator () {
             this.avatorLeft = '-180px';
@@ -65,9 +75,10 @@ export default {
                 this.password = '';
                 Cookies.set('locking', '0');
                 this.$emit('on-unlock');
-            } else {
-                this.$Message.error('密码错误,请重新输入。如果忘了密码，清除浏览器缓存重新登录即可，这里没有做后端验证');
-            }
+            } 
+            // else {
+            //     this.$Message.error('密码错误,请重新输入。如果忘了密码，清除浏览器缓存重新登录即可，这里没有做后端验证');
+            // }
         },
         unlockMousedown () {
             this.$refs.unlockBtn.className = 'unlock-btn click-unlock-btn';

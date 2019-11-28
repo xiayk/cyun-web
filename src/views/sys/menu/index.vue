@@ -55,8 +55,8 @@ export default {
                     title: "菜单编码"
                 },
                 {
-                    key: "parentId",
-                    title: "父级菜单ID"
+                    key: "parentName",
+                    title: "父级菜单"
                 },
                 {
                     key: "sort",
