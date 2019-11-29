@@ -1,6 +1,6 @@
 <template>
     <Select v-bind="$attrs" v-model="currentValue" placeholder="无父级菜单" clearable filterable @on-change="handleChange">
-        <Option :value="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Option>
+        <Option :value="item.value" v-for="item in data" :key="item.id">{{ item.menuName }}</Option>
     </Select>
 </template>
 
@@ -29,12 +29,12 @@ export default {
         },
         getSysMenuSelect() {
             getSysMenuSelect().then(res => {
-                this.data = res.data.map(item => {
-                    return {
-                        value: item.id,
-                        label: item.name
-                    };
-                });
+                this.data = res.data
+                console.log(this.data)
+                // let arr = res.data
+                // arr.forEach(item => {
+                    
+                // });
             });
         }
     },

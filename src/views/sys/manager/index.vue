@@ -20,15 +20,6 @@
                 <FormItem label="手机号" prop="mobile">
                     <Input v-model="filter.mobile" clearable></Input>
                 </FormItem>
-                <FormItem label="所属商户名称">
-                    <Input v-model="filter.merchantName" clearable></Input>
-                </FormItem>
-                <FormItem label="所属门店名称">
-                    <Input v-model="filter.storeName" clearable></Input>
-                </FormItem>
-                <FormItem label="所属渠道名称">
-                    <Input v-model="filter.agentName" clearable></Input>
-                </FormItem>
                 <FormItem class="submit">
                     <Button type="primary" html-type="submit">筛选</Button>
                 </FormItem>

@@ -91,7 +91,7 @@ export default {
                         res => {
                             this.loading = false;
                             this.$refs.form.resetFields();
-                            this.$lf.message("添加成功", "success");
+                            this.$lf.message("修改成功", "success");
                             closeCurrentErrPage(this, "sys-role");
                         },
                         () => {

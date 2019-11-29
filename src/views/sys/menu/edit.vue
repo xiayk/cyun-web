@@ -80,15 +80,14 @@ import { addOrUpdateMenu, getMenuDetail } from "@/actions/sys";
 import { closeCurrentErrPage } from "@/constants/constant";
 import { validateData } from "./validate";
 let defaultForm = {
-    code: "",
-    name: "",
-    url: "",
+    menuCode: "",
+    menuName: "",
+    menuUrl: "",
     types: "1",
-    rank: "1",
+    sort: "1",
     parentId: "",
     roleIds: [],
-    menuId: '',
-    functions: []
+    menuId: ''
 };
 export default {
     name: "sys-menu-edit",
