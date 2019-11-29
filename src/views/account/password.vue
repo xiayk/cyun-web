@@ -79,7 +79,7 @@ export default {
                     changePWd(this.editPasswordForm).then(
                         res => {
                             this.loading = false;
-                            if (res.result) {
+                            if (res.status == 200) {
                                 this.$lf.alert.success(
                                     "保存成功，请重新登录",
                                     null,
@@ -94,7 +94,7 @@ export default {
                                     }
                                 );
                             } else {
-                                this.$lf.alert.error(res.message);
+                                this.$lf.alert.error(res.msg);
                             }
                         },
                         () => {
