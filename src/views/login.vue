@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { login, getManagerDetail } from "@/actions/sys";
+import { login, getManagerDetail, getUserInfo } from "@/actions/sys";
 import Cookies from "js-cookie";
 
 export default {
@@ -72,8 +72,10 @@ export default {
                         res => {
                             this.loading = false;
                             this.zbRoleDetail(res.data);
-                            Cookies.set("user", JSON.stringify(res.data));
                             Cookies.set("token", res.data);
+                            getUserInfo().then(res => {
+                                Cookies.set("user", JSON.stringify(res.data));
+                            })
                             // if (this.form.remember) {
                             //     // localStorage.setItem(
                             //     //     "lf_user",

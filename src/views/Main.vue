@@ -36,8 +36,8 @@
                         <Row type="flex" justify="end" align="middle" class="user-dropdown-innercon">
                             <Dropdown transfer trigger="click" @on-click="handleClickUserDropdown">
                                 <a href="javascript:void(0)">
-                                    <span class="main-user-name">张三</span>
-                                    <Avatar style="background: #f56a00; margin-left:7px">Cyun</Avatar>
+                                    <span class="main-user-name">{{userName}}</span>
+                                    <Avatar style="background: #f56a00; margin-left:7px">{{userName.substring(0,1)}}</Avatar>
                                     <Icon type="arrow-down-b"></Icon>
                                 </a>
                                 <DropdownMenu slot="list">
@@ -85,7 +85,7 @@ export default {
     data() {
         return {
             shrink: false,
-            userName: this.$store.state.user.userInfo.name,
+            userName: this.$store.state.user.userInfo.userName,
             isFullScreen: false,
             openedSubmenuArr: this.$store.state.app.openedSubmenuArr
         };

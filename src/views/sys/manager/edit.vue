@@ -1,7 +1,7 @@
 
 <template>
   <Card>
-    <p slot="title">编辑操作员</p>
+    <p slot="title">编辑用户</p>
     <Form
       style="max-width: 800px;"
       ref="form"
@@ -12,14 +12,14 @@
       label-position="right"
       :rules="rules"
     >
-      <FormItem label="登录账号" prop="userName">
-        <span>{{form.userName}}</span>
+      <FormItem label="登录账号" prop="account">
+        <span>{{form.account}}</span>
       </FormItem>
-      <FormItem label="员工姓名" prop="nickName">
-        <Input v-model="form.nickName" placeholder="员工姓名"></Input>
+      <FormItem label="员工姓名" prop="userName">
+        <Input v-model="form.userName" placeholder="员工姓名"></Input>
       </FormItem>
-      <FormItem label="手机号码" prop="mobile">
-        <Input v-model="form.mobile" placeholder="手机号码"></Input>
+      <FormItem label="手机号码" prop="phone">
+        <Input v-model="form.phone" placeholder="手机号码"></Input>
       </FormItem>
       <!-- <FormItem label="身份证号" prop="certificateNo" >
                 <Input v-model="form.certificateNo" placeholder="身份证号"></Input>
@@ -27,7 +27,7 @@
       <FormItem label="所属角色" prop="roleIds">
         <manager-role-selector isSingle v-model="form.roleIds"></manager-role-selector>
       </FormItem>
-      <FormItem label="所属门店" v-if="storeList.length">
+      <!-- <FormItem label="所属门店" v-if="storeList.length">
         <CheckboxGroup v-model="form.storeCodes" size="small">
           <Checkbox
             :label="item.code"
@@ -35,7 +35,7 @@
             :key="item.value"
           >{{ item.storeName }}</Checkbox>
         </CheckboxGroup>
-      </FormItem>
+      </FormItem> -->
       <FormItem label="状态" prop="state">
         <RadioGroup v-model="form.status">
           <Radio label="1">冻结</Radio>
@@ -53,8 +53,7 @@
 import managerRoleSelector from "components/manager-role-selector";
 import {
     addOrUpdateManager,
-    getManagerDetail,
-    getNowStoreList
+    getManagerDetail
 } from "@/actions/sys";
 import { closeCurrentErrPage } from "@/constants/constant";
 import { validateData } from "./validate";
@@ -123,15 +122,15 @@ export default {
         }
     },
     activated() {
-        this.getManagerDetail();
-        getNowStoreList().then(res => {
-            this.storeList = res.data;
-        });
+        //this.getManagerDetail();
+        // getNowStoreList().then(res => {
+        //     this.storeList = res.data;
+        // });
     },
     created() {
-        getNowStoreList().then(res => {
-            this.storeList = res.data;
-        });
+        // getNowStoreList().then(res => {
+        //     this.storeList = res.data;
+        // });
     },
     components: {
         managerRoleSelector

@@ -21,10 +21,10 @@
       <FormItem label="确认密码" prop="repeatPassword">
         <Input type="password" v-model="form.repeatPassword" placeholder="请再次输入密码"></Input>
       </FormItem>
-      <FormItem label="姓名" prop="nickName">
+      <FormItem label="姓名" prop="userName">
         <Input v-model="form.userName" placeholder="姓名"></Input>
       </FormItem>
-      <FormItem label="手机号码" prop="mobile">
+      <FormItem label="手机号码" prop="phone">
         <Input v-model="form.phone" placeholder="手机号码"></Input>
       </FormItem>
       <FormItem label="所属角色" prop="roleIds">
@@ -47,8 +47,7 @@
 import managerRoleSelector from "components/manager-role-selector";
 import {
     addOrUpdateManager,
-    getManagerDetail,
-    getNowStoreList
+    getManagerDetail
 } from "@/actions/sys";
 import { closeCurrentErrPage } from "@/constants/constant";
 import { validateData } from "./validate";
@@ -106,7 +105,7 @@ export default {
                             this.loading = false;
                             this.$refs.form.resetFields();
                             this.$lf.message("保存成功", "success");
-                            closeCurrentErrPage(this, "sys-manager");
+                            closeCurrentErrPage(this, "sys-user");
                         },
                         () => {
                             this.loading = false;
@@ -116,16 +115,16 @@ export default {
             });
         }
     },
-    created() {
-        getNowStoreList().then(res => {
-            this.storeList = res.data;
-        });
-    },
-    activated() {
-        getNowStoreList().then(res => {
-            this.storeList = res.data;
-        });
-    },
+    // created() {
+    //     getNowStoreList().then(res => {
+    //         this.storeList = res.data;
+    //     });
+    // },
+    // activated() {
+    //     getNowStoreList().then(res => {
+    //         this.storeList = res.data;
+    //     });
+    // },
     components: {
         managerRoleSelector
     }

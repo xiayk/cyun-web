@@ -26,6 +26,13 @@ export function changePWd(params) {
     return $axios.post("/users/update/password", params);
 }
 
+/**
+ * 获取用户信息
+ */
+export function getUserInfo() {
+    return $axios.post("/users/info/my");
+}
+
 
 
 /**
