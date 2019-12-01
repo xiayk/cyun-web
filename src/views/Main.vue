@@ -12,8 +12,8 @@
                 :open-names="openedSubmenuArr"
                 :menu-list="menuList">
                 <div slot="top" class="logo-con">
-                    <img v-show="!shrink"  src="../images/logo.png" key="max-logo" />
-                    <img v-show="shrink" src="../images/logo-min.png" key="min-logo" />
+                    <img v-show="!shrink"  src="../images/logo.jpg" key="max-logo" />
+                    <img v-show="shrink" src="../images/logo-min.jpg" key="min-logo" />
                 </div>
             </shrinkable-menu>
         </div>
@@ -36,8 +36,8 @@
                         <Row type="flex" justify="end" align="middle" class="user-dropdown-innercon">
                             <Dropdown transfer trigger="click" @on-click="handleClickUserDropdown">
                                 <a href="javascript:void(0)">
-                                    <span class="main-user-name">{{userName}}</span>
-                                    <Avatar style="background: #f56a00; margin-left:7px">{{userName.substring(0,1)}}</Avatar>
+                                    <!-- <span class="main-user-name">{{userName}}</span> -->
+                                    <Avatar style="background: #f56a00; margin-right:25px">{{userName}}</Avatar>
                                     <Icon type="arrow-down-b"></Icon>
                                 </a>
                                 <DropdownMenu slot="list">
@@ -190,7 +190,7 @@ export default {
     },
     mounted() {
         this.init();
-        console.log(this.$store.state.app,1)
+        //console.log(this.$store.state.app,1)
     },
     created() {
         // 显示打开的页面的列表

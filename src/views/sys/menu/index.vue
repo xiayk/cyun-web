@@ -43,10 +43,6 @@ export default {
                     }
                 },
                 {
-                    key: "id",
-                    title: "菜单ID"
-                },
-                {
                     key: "menuName",
                     title: "菜单名称"
                 },
@@ -57,6 +53,23 @@ export default {
                 {
                     key: "parentName",
                     title: "父级菜单"
+                },
+                {
+                    key: "status",
+                    title: "状态",
+                    render: (h, params) => {
+                        let re = "";
+                        if (params.row.status === 0) {
+                            return h("div", "正常");
+                        } else if (params.row.status === 1) {
+                            return h("div", "禁用");
+                        }
+                    }
+                },
+                {
+                    key: "createDate",
+                    title: "创建时间",
+                    width: 150
                 },
                 {
                     key: "sort",

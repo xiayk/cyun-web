@@ -42,20 +42,17 @@ export default {
             loading: false,
             columns: [
                 {
-                    key: "id",
-                    title: "角色编号",
-                    width: 260
-                },
-                {
                     key: "roleName",
                     title: "角色名称"
+                },
+                {
+                    key: "roleCode",
+                    title: "角色代码"
                 },
                 {
                     key: "type",
                     title: "角色类型",
                     render: (h, params) => {
-                        let re = "";
-                        console.log(params)
                         if (params.row.type === 0) {
                             return h("div", "正常");
                         } else if (params.row.type === 1) {

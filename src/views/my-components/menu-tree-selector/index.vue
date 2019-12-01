@@ -85,26 +85,25 @@ export default {
         },
         //格式化树形数据
         formatTreeData(data) {
+            let _this = this;
             data &&
                 data.forEach(v1 => {
                     v1.title = v1.menuName;
                     v1.children = v1.childrens;
-                    console.log(this.currentMenuIds);
-                    if (this.currentMenuIds.length) {
-                        if (this.currentMenuIds.includes(v1.id)) {
+                    if (_this.currentMenuIds.length||_this.menuIds.length) {
+                        if (_this.currentMenuIds.includes(v1.id)||_this.menuIds.includes(v1.id)) {
                             v1.checked = true;
                         } else {
                             v1.checked = false;
                         }
                     }
                     v1.expand = true;
-                    this.formatTreeData(v1.childrens);
+                    _this.formatTreeData(v1.childrens);
                 });
         }
     },
     watch: {
         currentMenuIds(val) {
-            // console.log(val)
             this.$emit("update:menuIds", val);
         },
         currentFunctionIds(val) {
@@ -115,7 +114,6 @@ export default {
         },
         "$props.menuIds"(val) {
             this.currentMenuIds = val;
-            console.log(this.currentMenuIds);
         },
         "$props.functionIds"(val) {
             this.currentFunctionIds = val;

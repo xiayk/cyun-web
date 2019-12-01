@@ -1,6 +1,6 @@
 <template>
-    <Select v-bind="$attrs" v-model="currentValue" placeholder="无父级菜单" clearable filterable @on-change="handleChange">
-        <Option :value="item.value" v-for="item in data" :key="item.id">{{ item.menuName }}</Option>
+    <Select v-bind="$attrs" v-model="currentValue" placeholder="无父级菜单" clearable  @on-change="handleChange">
+        <Option :value="item.id" v-for="item in data" :key="item.id">{{ item.menuName }}</Option>
     </Select>
 </template>
 
@@ -10,7 +10,7 @@ export default {
     name: "salesman-selector",
     props: {
         value: {
-            type: [String, Number],
+            type: String,
             default: ""
         }
     },
