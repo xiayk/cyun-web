@@ -73,17 +73,17 @@ export default {
                 if (valid) {
                     this.loading = true;
                     let formData = this.form;
-                    addOrUpdateRole(formData).then(
-                        res => {
-                            this.loading = false;
-                            this.$refs.form.resetFields();
-                            this.$lf.message("添加成功", "success");
-                            closeCurrentErrPage(this, "sys-role");
-                        },
-                        () => {
-                            this.loading = false;
-                        }
-                    );
+                    // addOrUpdateRole(formData).then(
+                    //     res => {
+                    //         this.loading = false;
+                    //         this.$refs.form.resetFields();
+                    //         this.$lf.message("添加成功", "success");
+                    //         closeCurrentErrPage(this, "sys-role");
+                    //     },
+                    //     () => {
+                    //         this.loading = false;
+                    //     }
+                    // );
                 }
             });
         }

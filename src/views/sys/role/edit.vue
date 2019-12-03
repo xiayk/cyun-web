@@ -30,7 +30,6 @@
                 <menu-tree-selector
                     :role-id="$route.params.id"
                     :menu-ids.sync="form.menuIds"
-                    :function-ids.sync="form.functionIds"
                 ></menu-tree-selector>
             </FormItem>
             <FormItem>
@@ -87,17 +86,17 @@ export default {
                 if (valid) {
                     this.loading = true;
                     let formData = this.form;
-                    addOrUpdateRole(formData).then(
-                        res => {
-                            this.loading = false;
-                            this.$refs.form.resetFields();
-                            this.$lf.message("修改成功", "success");
-                            closeCurrentErrPage(this, "sys-role");
-                        },
-                        () => {
-                            this.loading = false;
-                        }
-                    );
+                    // addOrUpdateRole(formData).then(
+                    //     res => {
+                    //         this.loading = false;
+                    //         this.$refs.form.resetFields();
+                    //         this.$lf.message("修改成功", "success");
+                    //         closeCurrentErrPage(this, "sys-role");
+                    //     },
+                    //     () => {
+                    //         this.loading = false;
+                    //     }
+                    // );
                 }
             });
         }
