@@ -99,11 +99,11 @@ export function addOrUpdateManager(params) {
 }
 
 /**
- * 获取操作员信息
+ * 获取用户信息
  * @param {*} id
  */
 export function getManagerDetail(id) {
-    return $axios.post(`/sys/manager/detail/${id}`);
+    return $axios.post(`/users/detail/${id}`);
 }
 
 /**

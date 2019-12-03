@@ -38,8 +38,8 @@
       </FormItem> -->
       <FormItem label="状态" prop="state">
         <RadioGroup v-model="form.status">
-          <Radio label="1">冻结</Radio>
-          <Radio label="0">启用</Radio>
+          <Radio :label="0">启用</Radio>
+          <Radio :label="1">冻结</Radio>
         </RadioGroup>
       </FormItem>
       <FormItem>
@@ -122,7 +122,7 @@ export default {
         }
     },
     activated() {
-        //this.getManagerDetail();
+        this.getManagerDetail();
         // getNowStoreList().then(res => {
         //     this.storeList = res.data;
         // });
