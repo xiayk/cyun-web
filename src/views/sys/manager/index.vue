@@ -26,7 +26,7 @@
             </Form>
         </Card>
         <div class="data-control">
-            <Button type="primary" @click="$router.push({ name: 'sys-manager-add' })">新建操作员</Button>
+            <Button type="primary" @click="$router.push({ name: 'sys-manager-add' })">新建用户</Button>
             <Button type="primary" @click="showExportModal">批量导入</Button>
         </div>
         <Table :loading="loading" border stripe :columns="columns" :data="data"></Table>

@@ -5,11 +5,11 @@ import store from "../store";
 import env from "../../build/env";
 export const ApiUrl =
     env === "development" ?
-    "http://39.105.201.64:8087" :
+    "http://api.cyun.xiayk.com" :
     env === "demo" ?
-    "http://39.105.201.64:8087" :
+    "http://localhost:8087" :
     env === "production" ?
-    "http://39.105.201.64:8087" //https://xlink.91xft.cn/
+    "http://39.105.201.64:8087"
     :
     "http://120.77.147.241:10000/mock/59db10974720a62cc0517952";
 

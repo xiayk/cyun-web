@@ -1,7 +1,7 @@
 
 <template>
   <Card>
-    <p slot="title">新增操作员</p>
+    <p slot="title">新增用户</p>
     <Form
       style="max-width: 800px;"
       ref="form"
@@ -100,6 +100,7 @@ export default {
                 if (valid) {
                     this.loading = true;
                     let formData = this.form;
+                    formData.roleId = formData.roleId || formData.roleIds[0]
                     addOrUpdateManager(formData).then(
                         res => {
                             this.loading = false;
