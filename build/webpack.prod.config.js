@@ -74,7 +74,7 @@ module.exports = merge(webpackBaseConfig, {
             }
         ),
         new HtmlWebpackPlugin({
-            title: "云创 v" + package.version,
+            title: "创云 v" + package.version,
             favicon: "./favicon.ico",
             filename: "../index.html",
             template: "!!ejs-loader!./src/template/index.ejs",

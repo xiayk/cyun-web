@@ -29,7 +29,7 @@ module.exports = merge(webpackBaseConfig, {
             minChunks: Infinity
         }),
         new HtmlWebpackPlugin({
-            title: "云创 v" + package.version,
+            title: "创云 v" + package.version,
             filename: "../index.html",
             inject: false
         }),
