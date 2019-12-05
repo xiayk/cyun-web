@@ -17,10 +17,7 @@
             <FormItem label="角色Code" prop="roleCode">
                 <Input v-model="form.roleCode"></Input>
             </FormItem>
-            <FormItem label="角色Code" prop="roleCode">
-                <Input v-model="form.roleCode"></Input>
-            </FormItem>
-            <FormItem label="状态" prop="state">
+            <FormItem label="状态" prop="status">
                 <RadioGroup v-model="form.status">
                     <Radio :label=0>启用</Radio>
                     <Radio :label=1>禁用</Radio>
@@ -86,17 +83,17 @@ export default {
                 if (valid) {
                     this.loading = true;
                     let formData = this.form;
-                    // addOrUpdateRole(formData).then(
-                    //     res => {
-                    //         this.loading = false;
-                    //         this.$refs.form.resetFields();
-                    //         this.$lf.message("修改成功", "success");
-                    //         closeCurrentErrPage(this, "sys-role");
-                    //     },
-                    //     () => {
-                    //         this.loading = false;
-                    //     }
-                    // );
+                    addOrUpdateRole(formData).then(
+                        res => {
+                            this.loading = false;
+                            this.$refs.form.resetFields();
+                            this.$lf.message("修改成功", "success");
+                            closeCurrentErrPage(this, "sys-role");
+                        },
+                        () => {
+                            this.loading = false;
+                        }
+                    );
                 }
             });
         }

@@ -33,7 +33,7 @@
             <FormItem label="菜单排序" prop="ank" >
                 <Input v-model="form.sort"></Input>
             </FormItem>
-            <FormItem label="功能按钮" :style="{ width: '450px' }">
+            <!-- <FormItem label="功能按钮" :style="{ width: '450px' }">
                 <Row v-for="(fun, index) in form.functions" 
                     v-if="form.functions.length > 0" 
                     :key="index">
@@ -58,7 +58,7 @@
                         <Button size="small" type="primary" icon="plus-round" @click="handlerFunctionAdd">新增功能</Button>
                     </Col>
                 </Row>  
-            </FormItem>
+            </FormItem> -->
             <FormItem label="分配给角色" prop="roleIds">
                 <manager-role-selector v-model="form.roleIds"></manager-role-selector>
             </FormItem>

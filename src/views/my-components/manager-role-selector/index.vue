@@ -1,6 +1,6 @@
 <template>
     <CheckboxGroup v-model="currentValue" size="small" @on-change="handleChange">
-        <Checkbox :disabled="disabled" :label="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Checkbox>
+        <Checkbox :disabled="item.disabled" :label="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Checkbox>
     </CheckboxGroup>
 </template>
 
@@ -40,8 +40,9 @@ export default {
             getSysRoles().then(res => {
                 this.data = res.data.map(item => {
                     return {
-                        value: item.roleId,
-                        label: item.roleName
+                        value: item.id,
+                        label: item.roleName,
+                        disabled: item.status === 1
                     };
                 });
             });
