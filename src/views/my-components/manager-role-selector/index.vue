@@ -40,7 +40,7 @@ export default {
             getSysRoles().then(res => {
                 this.data = res.data.map(item => {
                     return {
-                        value: item.id,
+                        value: item.roleId,
                         label: item.roleName,
                         disabled: item.status === 1
                     };
