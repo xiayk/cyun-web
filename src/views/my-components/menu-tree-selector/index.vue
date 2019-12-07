@@ -36,11 +36,14 @@ export default {
     },
     methods: {
         init() {
-            // if (this.roleId) {
-            //     getSysMenuTree(this.roleId).then(res => {
-            //         this.data = res.data;
-            //         this.formatTreeData(res.data);
-            //     });
+            if (this.roleId) {
+                getSysMenuTree(this.roleId).then(res => {
+                    this.currentMenuIds = res.data;
+                    console.log("role", res.data);
+                    // this.data = res.data;
+                    // this.formatTreeData(res.data);
+                });
+            }
             // } else {
             getSysMenuTree().then(res => {
                 this.data = res.data;
@@ -90,13 +93,29 @@ export default {
                 data.forEach(v1 => {
                     v1.title = v1.menuName;
                     v1.children = v1.childrens;
-                    if (_this.currentMenuIds.length||_this.menuIds.length) {
-                        if (_this.currentMenuIds.includes(v1.id)||_this.menuIds.includes(v1.id)) {
-                            v1.checked = true;
-                        } else {
-                            v1.checked = false;
-                        }
+                    v1.disabled = v1.status === 1;
+                    if (_this.currentMenuIds.length) {
+                        _this.currentMenuIds.forEach(vv => {
+                            if (v1.parentId == "0" && v1.id == vv.id) {
+                                v1.checked = true
+                            }else{
+                                
+                            v1.checked = vv.id == v1.id;
+                            }
+                            console.log("v1", v1.id, "vv", vv.id);
+                        });
                     }
+                    console.log("v1", v1.checked, "name", v1.menuName);
+                    // if (_this.currentMenuIds.length || _this.menuIds.length) {
+                    //     if (
+                    //         _this.currentMenuIds.includes(v1.id) ||
+                    //         _this.menuIds.includes(v1.id)
+                    //     ) {
+                    //         v1.checked = true;
+                    //     } else {
+                    //         v1.checked = false;
+                    //     }
+                    // }
                     v1.expand = true;
                     _this.formatTreeData(v1.childrens);
                 });
