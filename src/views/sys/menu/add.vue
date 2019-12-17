@@ -33,6 +33,12 @@
             <FormItem label="菜单排序" prop="ank" >
                 <Input v-model="form.sort"></Input>
             </FormItem>
+            <FormItem label="状态" prop="status">
+                <RadioGroup v-model="form.status">
+                    <Radio :label=0>启用</Radio>
+                    <Radio :label=1>禁用</Radio>
+                </RadioGroup>
+            </FormItem>
             <!-- <FormItem label="功能按钮" :style="{ width: '450px' }">
                 <Row v-for="(fun, index) in form.functions" 
                     v-if="form.functions.length > 0" 
