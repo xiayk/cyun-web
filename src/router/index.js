@@ -36,9 +36,13 @@ router.beforeEach((to, from, next) => {
         }
         if (!Cookies.get("token") && to.name !== "login") {
             // 判断是否已经登录且前往的页面不是登录页
-            next({
-                name: "login"
-            });
+            if (to.name === 'addCus') {
+                next();
+            } else {
+                next({
+                    name: "login"
+                });
+            }
         } else if (Cookies.get("token") && to.name === "login") {
             // 判断是否已经登录且前往的是登录页
             Util.title();

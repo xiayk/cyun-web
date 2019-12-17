@@ -5,7 +5,7 @@ export const loginRouter = {
     path: "/login",
     name: "login",
     meta: {
-        title: "Login - 登录"
+        title: "Cyun - 登录"
     },
     component: () => import("@/views/login.vue")
 };
@@ -26,6 +26,15 @@ export const page403 = {
     },
     name: "error-403",
     component: () => import("@/views/error-page/403.vue")
+};
+
+export const saveCus = {
+    path: "/saveCus/:id",
+    meta: {
+        title: "客户添加"
+    },
+    name: "addCus",
+    component: () => import("@/views/account/saveCus.vue")
 };
 
 export const page500 = {
@@ -147,6 +156,7 @@ export const appRouter = [{
 // 所有上面定义的路由都要写在下面的routers里
 export const routers = [
     loginRouter,
+    saveCus,
     otherRouter,
     locking,
     ...appRouter,
