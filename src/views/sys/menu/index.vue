@@ -6,7 +6,7 @@
         <Card class="filter-wrap">
             <Form @submit.native.prevent="handleFilter" ref="filterForm" label-position="right" :label-width="120">
                 <FormItem label="菜单名称" prop="name">
-                    <Input v-model="filter.name" clearable></Input>
+                    <Input v-model="filter.menuName" clearable></Input>
                 </FormItem>
                 <FormItem class="submit">
                     <Button type="primary" html-type="submit">筛选</Button>
@@ -137,7 +137,7 @@ export default {
             filter: {
                 limit: 10,
                 offset: 0,
-                name: ""
+                menuName: ""
             },
             data: [],
             total: 0
