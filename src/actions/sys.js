@@ -69,7 +69,7 @@ export function resetManagerPwdById(userId) {
  * @param {*} managerId
  */
 export function deleteManagerById(params) {
-    return $axios.post(`/sys/manager/delete`, params);
+    return $axios.post(`/users/update/status`, params);
 };
 
 

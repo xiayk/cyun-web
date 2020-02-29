@@ -25,17 +25,8 @@
                 <Input v-model="form.certificateNo" placeholder="身份证号"></Input>
             </FormItem>-->
             <FormItem label="所属角色" prop="roleIds">
-                <manager-role-selector isSingle v-model="form.roleIds"></manager-role-selector>
+                <manager-role-selector isSingle v-model="form.roleId"></manager-role-selector>
             </FormItem>
-            <!-- <FormItem label="所属门店" v-if="storeList.length">
-        <CheckboxGroup v-model="form.storeCodes" size="small">
-          <Checkbox
-            :label="item.code"
-            v-for="item in storeList"`
-            :key="item.value"
-          >{{ item.storeName }}</Checkbox>
-        </CheckboxGroup>
-            </FormItem>-->
             <FormItem label="状态" prop="state">
                 <RadioGroup v-model="form.status">
                     <Radio :label="0">启用</Radio>
@@ -62,8 +53,7 @@ let defaultForm = {
     name: "",
     certificateNo: "",
     status: 1,
-    roleId: "",
-    roleIds: ""
+    roleId: ""
 };
 export default {
     name: "sys-manager-edit",
@@ -78,8 +68,7 @@ export default {
                 name: "",
                 certificateNo: "",
                 status: 1,
-                roleId: "",
-                roleIds: []
+                roleId: ""
             },
             rules: validateData,
             storeList: []
@@ -91,8 +80,6 @@ export default {
             if (id) {
                 getManagerDetail(id).then(res => {
                     this.form = res.data;
-                    let roleIds = res.data.roleId
-                    this.form.roleIds = roleIds
                 });
             }
         },

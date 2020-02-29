@@ -40,7 +40,7 @@
                 </RadioGroup>
             </FormItem>
             <FormItem label="分配给角色" prop="roleIds">
-                <manager-role-selector v-model="form.roleIds"></manager-role-selector>
+                <manager-role-selector v-model="form.roleId"></manager-role-selector>
             </FormItem>
             <FormItem>
                 <Button type="primary" :loading="loading" html-type="submit">提交</Button>
@@ -64,7 +64,7 @@ let defaultForm = {
     types: "1",
     rank: "1",
     parentId: "",
-    roleIds: ""
+    roleId: ""
 };
 export default {
     name: "sys-menu-add",

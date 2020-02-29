@@ -166,14 +166,15 @@ export default {
                                                             storeCode
                                                         } = params.row;
                                                         deleteManagerById({
-                                                            userId: id,
+                                                            id: id,
+                                                            status: 2,
                                                             storeCode
                                                         }).then(res => {
                                                             this.$lf.message(
                                                                 "删除成功",
                                                                 "success"
                                                             );
-                                                            // this.data.splice(params.index, 1);
+                                                            this.data.splice(params.index, 1);
                                                             this.loadData();
                                                         });
                                                     }
