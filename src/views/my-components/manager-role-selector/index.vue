@@ -1,7 +1,10 @@
 <template>
-    <CheckboxGroup v-model="currentValue" size="small" @on-change="handleChange">
+    <!-- <CheckboxGroup v-model="currentValue" size="small" @on-change="handleChange">
         <Checkbox :disabled="item.disabled" :label="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Checkbox>
-    </CheckboxGroup>
+    </CheckboxGroup> -->
+    <RadioGroup v-model="currentValue" size="small" @on-change="handleChange">
+        <Radio :disabled="item.disabled" :label="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Radio>
+    </RadioGroup>
 </template>
 
 <script>
@@ -10,9 +13,9 @@ export default {
     name: "manager-role-selector",
     props: {
         value: {
-            type: Array,
+            type: String,
             default: function() {
-                return [];
+                return "";
             }
         },
         isSingle: {
@@ -40,7 +43,7 @@ export default {
             getSysRoles().then(res => {
                 this.data = res.data.map(item => {
                     return {
-                        value: item.roleId,
+                        value: item.id,
                         label: item.roleName,
                         disabled: item.status === 1
                     };
@@ -48,9 +51,7 @@ export default {
             });
         },
         handleChange(val) {
-            if (this.isSingle && val.length) {
-                val = [val[val.length - 1]];
-            }
+            console.log(val)
             this.$emit("input", val);
         }
     },

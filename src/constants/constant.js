@@ -5,9 +5,9 @@ import store from "../store";
 import env from "../../build/env";
 export const ApiUrl =
     env === "development" ?
-    "http://localhost:8087" :
+    "http://xiayk.com:8087" :
     env === "demo" ?
-    "http://localhost:8087" :
+    "http://xiayk.com:8087" :
     env === "production" ?
     "http://39.105.201.64:8087"
     :

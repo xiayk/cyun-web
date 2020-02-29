@@ -63,7 +63,7 @@ let defaultForm = {
     certificateNo: "",
     status: 1,
     roleId: "",
-    roleIds: []
+    roleIds: ""
 };
 export default {
     name: "sys-manager-edit",
@@ -91,9 +91,8 @@ export default {
             if (id) {
                 getManagerDetail(id).then(res => {
                     this.form = res.data;
-                    let roleIds = [res.data.roleId]
+                    let roleIds = res.data.roleId
                     this.form.roleIds = roleIds
-                    console.log("this.form.roleIds",this.form.roleIds)
                 });
             }
         },
@@ -103,7 +102,6 @@ export default {
                 if (valid) {
                     this.loading = true;
                     let formData = this.form;
-                    formData.roleId = formData.roleIds[0];
                     if (id) {
                         formData.id = id;
                     }
