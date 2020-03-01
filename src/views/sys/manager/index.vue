@@ -134,7 +134,8 @@ export default {
                                     {
                                         props: {
                                             type: "text",
-                                            size: "small"
+                                            size: "small",
+                                            disabled: params.row.optStatus != 0
                                         },
                                         on: {
                                             click: () => {
@@ -154,7 +155,11 @@ export default {
                                     {
                                         props: {
                                             type: "text",
-                                            size: "small"
+                                            size: "small",
+                                            disabled: params.row.optStatus != 0
+                                        },
+                                        style: {
+                                            disabled: true
                                         },
                                         on: {
                                             click: () => {
