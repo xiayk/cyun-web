@@ -1,10 +1,12 @@
 <template>
-    <!-- <CheckboxGroup v-model="currentValue" size="small" @on-change="handleChange">
+    <div>
+        <CheckboxGroup v-if="isSingle" v-model="currentValue" size="small" @on-change="handleChange">
         <Checkbox :disabled="item.disabled" :label="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Checkbox>
-    </CheckboxGroup> -->
-    <RadioGroup v-model="currentValue" size="small" @on-change="handleChange">
+    </CheckboxGroup>
+    <RadioGroup v-else v-model="currentValue" size="small" @on-change="handleChange">
         <Radio :disabled="item.disabled" :label="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Radio>
     </RadioGroup>
+    </div>
 </template>
 
 <script>
@@ -13,9 +15,9 @@ export default {
     name: "manager-role-selector",
     props: {
         value: {
-            type: String,
+            type: Array,
             default: function() {
-                return "";
+                return []
             }
         },
         isSingle: {
@@ -49,15 +51,19 @@ export default {
                     };
                 });
             });
+            console.log(this,'123131231')
         },
         handleChange(val) {
-            console.log(val)
+            console.log(val,1)
             this.$emit("input", val);
         }
     },
     watch: {
         value(val) {
             this.currentValue = val;
+        },
+        isSingle(val,old){
+            // console.log(val,1)
         }
     }
 };

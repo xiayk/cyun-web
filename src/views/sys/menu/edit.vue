@@ -69,7 +69,7 @@
                 </Row>  
             </FormItem> -->
             <FormItem label="分配给角色" prop="roleIds">
-                <manager-role-selector v-model="form.roleIds"></manager-role-selector>
+                <manager-role-selector isSingle v-model="form.roleIds"></manager-role-selector>
             </FormItem>
             <FormItem>
                 <Button type="primary" :loading="loading" html-type="submit">提交</Button>

@@ -60,10 +60,11 @@ axios.interceptors.request.use(config => {
 
 axios.interceptors.response.use(
     response => {
+        console.log(response.data.status)
         if (response.status < 200 || response.status >= 400) {
             if (response.config.method === "get" && response.status === 404) {
                 window.location.href = "/whoops";
-            } else if (response.status === 401) {
+            } else if (response.data.status === 401) {
                 iView.Modal.error({
                     title: "警告",
                     content: "登录超时",
@@ -84,7 +85,18 @@ axios.interceptors.response.use(
         }
         if (response.data.status == 200) {
             return response.data;
-        } else {
+        } else if (response.data.status === 401) {
+            iView.Modal.error({
+                title: "警告",
+                content: "登录超时",
+                onOk() {
+                    store.commit("logout", this);
+                    store.commit("clearOpenedSubmenu");
+                    location.href = "#/login";
+                }
+            });
+            return;
+        }else {
             iView.Notice.error({
                 title: "错误提示",
                 desc: response.data.msg || "未知错误"

@@ -25,7 +25,7 @@
                 <Input v-model="form.certificateNo" placeholder="身份证号"></Input>
             </FormItem>-->
             <FormItem label="所属角色" prop="roleIds">
-                <manager-role-selector isSingle v-model="form.roleId"></manager-role-selector>
+                <manager-role-selector v-model="form.roleId"></manager-role-selector>
             </FormItem>
             <FormItem label="状态" prop="state">
                 <RadioGroup v-model="form.status">
