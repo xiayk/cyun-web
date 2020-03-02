@@ -3,7 +3,7 @@
 
 <template>
     <div>
-        <Card class="filter-wrap">
+        <!-- <Card class="filter-wrap">
             <Form @submit.native.prevent="handleFilter" ref="filterForm" label-position="right" :label-width="120">
                 <FormItem label="菜单名称" prop="name">
                     <Input v-model="filter.menuName" clearable></Input>
@@ -12,7 +12,7 @@
                     <Button type="primary" html-type="submit">筛选</Button>
                 </FormItem>
             </Form>
-        </Card>
+        </Card> -->
         <div class="data-control">
             <Button type="primary" @click="$router.push({ name: 'sys-menu-add',query:{from:$route.name} })">新建菜单</Button>
         </div>

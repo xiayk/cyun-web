@@ -63,7 +63,7 @@ let defaultForm = {
     url: "",
     types: "1",
     rank: "1",
-    parentId: "",
+    parentId: "0",
     roleId: ""
 };
 export default {

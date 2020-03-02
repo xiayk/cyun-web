@@ -12,13 +12,13 @@
                 :label-width="120"
             >
                 <FormItem label="登录账号" prop="userName">
-                    <Input v-model="filter.userName" clearable></Input>
+                    <Input v-model="filter.account" clearable></Input>
                 </FormItem>
                 <FormItem label="姓名" prop="name">
-                    <Input v-model="filter.name" clearable></Input>
+                    <Input v-model="filter.userName" clearable></Input>
                 </FormItem>
                 <FormItem label="手机号" prop="mobile">
-                    <Input v-model="filter.mobile" clearable></Input>
+                    <Input v-model="filter.phone" clearable></Input>
                 </FormItem>
                 <FormItem class="submit">
                     <Button type="primary" html-type="submit">筛选</Button>
@@ -134,8 +134,7 @@ export default {
                                     {
                                         props: {
                                             type: "text",
-                                            size: "small",
-                                            disabled: params.row.optStatus != 0
+                                            size: "small"
                                         },
                                         on: {
                                             click: () => {
@@ -226,9 +225,7 @@ export default {
                 userName: "",
                 phone: "",
                 name: "",
-                merchantName: "",
-                storeName: "",
-                agentName: ""
+                account: ""
             },
             data: [],
             total: 0

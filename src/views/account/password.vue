@@ -5,25 +5,41 @@
     <div>
         <Card>
             <p slot="title">
-                <Icon type="key"></Icon>
-                修改密码
+                <Icon type="key"></Icon>修改密码
             </p>
-            <Form style="max-width: 400px;" 
-                ref="editPasswordForm" 
-                method="post" 
-                @submit.prevent.native="submit" 
-                :model="editPasswordForm" 
-                :label-width="100" 
-                label-position="right" 
-                :rules="passwordValidate">
+            <Form
+                style="max-width: 400px;"
+                ref="editPasswordForm"
+                method="post"
+                @submit.prevent.native="submit"
+                :model="editPasswordForm"
+                :label-width="100"
+                label-position="right"
+                :rules="passwordValidate"
+            >
                 <FormItem label="原密码" prop="oldPassword" :error="oldPasswordError">
-                    <Input name="oldPassword" v-model="editPasswordForm.oldPassword" type="password" placeholder="请输入现在使用的密码" ></Input>
+                    <Input
+                        name="oldPassword"
+                        v-model="editPasswordForm.oldPassword"
+                        type="password"
+                        placeholder="请输入现在使用的密码"
+                    ></Input>
                 </FormItem>
                 <FormItem label="新密码" prop="newPassword">
-                    <Input name="newPassword" v-model="editPasswordForm.newPassword" type="password" placeholder="请输入新密码，至少6位字符" ></Input>
+                    <Input
+                        name="newPassword"
+                        v-model="editPasswordForm.newPassword"
+                        type="password"
+                        placeholder="请输入新密码，至少6位字符"
+                    ></Input>
                 </FormItem>
                 <FormItem label="确认新密码" prop="reNewPassword">
-                    <Input name="reNewPassword" v-model="editPasswordForm.reNewPassword" type="password" placeholder="请再次输入新密码" ></Input>
+                    <Input
+                        name="reNewPassword"
+                        v-model="editPasswordForm.reNewPassword"
+                        type="password"
+                        placeholder="请再次输入新密码"
+                    ></Input>
                 </FormItem>
                 <FormItem>
                     <Button type="primary" :loading="loading" html-type="submit">确定</Button>
@@ -45,6 +61,15 @@ export default {
                 callback();
             }
         };
+        const validePassword = (rule, value, callback) => {
+            if (value.length < 6 || value.length > 18) {
+                callback(new Error("请输入6-18位密码"));
+            } else if (!/^(?![^a-zA-Z]+$)(?!\D+$)/.test(value)) {
+                callback(new Error("密码格式不正确"));
+            } else {
+                callback();
+            }
+        };
         return {
             loading: false,
             oldPasswordError: "",
@@ -58,7 +83,8 @@ export default {
                     { required: true, message: "请输入原密码", trigger: "blur" }
                 ],
                 newPassword: [
-                    { required: true, message: "请输入新密码", trigger: "blur" }
+                    { required: true, message: "请输入新密码", trigger: "blur" },
+                    { validator: validePassword, trigger: "blur"}
                 ],
                 reNewPassword: [
                     {

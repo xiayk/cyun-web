@@ -68,7 +68,7 @@
 }
 </style>
 <template>
-    <div class="home-main">
+    <!-- <div class="home-main">
         <Button
             v-if="userName.userTypes==1"
             type="ghost"
@@ -76,7 +76,6 @@
             class="table-btn"
             @click="hanldPageCount"
         >商户渠道报表</Button>
-        <!-- 账户信息 -->
         <Row :gutter="10">
             <Col span="24">
                 <Row class-name="home-page-row1" :gutter="10">
@@ -289,7 +288,7 @@
                 </Col>
             </Row>
         </Row>
-    </div>
+    </div> -->
 </template>
 
 <script>

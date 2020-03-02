@@ -13,16 +13,16 @@
             label-position="right"
             :rules="rules">
             <FormItem label="角色名称" prop="1">
-                <Input v-model="form.roleName" placeholder="请以『ROLE_』开头"></Input>
+                <Input v-model="form.roleName" placeholder="请输入角色名称"></Input>
             </FormItem>
             <FormItem label="角色Code" prop="n1ame">
                 <Input v-model="form.roleCode" placeholder="请以『ROLE_』开头"></Input>
             </FormItem>
             <FormItem label="角色状态" prop="na1me">
-                <Input v-model="form.status" placeholder="请以『ROLE_』开头"></Input>
-            </FormItem>
-            <FormItem label="类型" prop="remar2k">
-                <Input v-model="form.type"></Input>
+                <RadioGroup v-model="form.status">
+                    <Radio :label="0">启用</Radio>
+                    <Radio :label="1">禁用</Radio>
+                </RadioGroup>
             </FormItem>
             <FormItem label="权限配置" prop="me2nuIds">
                 <menu-tree-selector :role-id="$route.params.id" :menu-ids.sync="form.menuIds"></menu-tree-selector>

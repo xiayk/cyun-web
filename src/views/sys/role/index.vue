@@ -88,8 +88,7 @@ export default {
                                 {
                                     props: {
                                         type: "text",
-                                        size: "small",
-                                        disabled: params.row.optStatus != 0
+                                        size: "small"
                                     },
                                     on: {
                                         click: () => {
