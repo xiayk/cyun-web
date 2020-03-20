@@ -5,7 +5,7 @@
 import { getSysMenuTree } from "@/actions/selector";
 export default {
     name: "menu-tree-selector",
-    props: {
+    props: { 
         roleId: {
             type: [String, Number],
             default: ""
