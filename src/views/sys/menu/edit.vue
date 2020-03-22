@@ -42,34 +42,8 @@
                     <Radio :label=1>禁用</Radio>
                 </RadioGroup>
             </FormItem>
-            <!-- <FormItem label="功能按钮" :style="{ width: '450px' }">
-                <Row v-for="(fun, index) in form.functions" 
-                    v-if="form.functions.length > 0" 
-                    :key="index">
-                    <Col span="9">
-                        <FormItem :prop="'functions[' + index + '].name'" :rules="{ required: true, trigger: 'blur'}" :show-message="false">
-                            <Input type="text" size="small" v-model.trim="fun.name" placeholder="功能说明...">
-                            </Input>
-                        </FormItem>
-                    </Col>
-                    <Col span="9" offset="1">
-                        <FormItem :prop="'functions[' + index + '].code'" :rules="{ required: true, trigger: 'blur'}" :show-message="false">
-                            <Input type="text" size="small" v-model.trim="fun.code" placeholder="功能编码（字母、-）">
-                            </Input>
-                        </FormItem>
-                    </Col>
-                    <Col span="4" offset="1">
-                        <Button type="ghost" size="small" @click="handlerFunctionRemove(index)">删除</Button>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col span="24">
-                        <Button size="small" type="primary" icon="plus-round" @click="handlerFunctionAdd">新增功能</Button>
-                    </Col>
-                </Row>  
-            </FormItem> -->
-            <FormItem label="分配给角色" prop="roleIds">
-                <manager-role-selector isSingle v-model="form.roleIds"></manager-role-selector>
+            <FormItem label="角色配置" prop="roleIds">
+                <menu-role-selector isSingle v-model="form.roleIds"></menu-role-selector>
             </FormItem>
             <FormItem>
                 <Button type="primary" :loading="loading" html-type="submit">提交</Button>
@@ -79,7 +53,7 @@
 </template>
 
 <script>
-import managerRoleSelector from "components/manager-role-selector";
+import menuRoleSelector from "components/menu-role-selector";
 import menuSelector from "components/menu-selector";
 //import menuTypeSelector from "components/menu-type-selector";
 import { addOrUpdateMenu, getMenuDetail } from "@/actions/sys";
@@ -166,7 +140,7 @@ export default {
         this.getMenuDetail();
     },
     components: {
-        managerRoleSelector,
+        menuRoleSelector,
         menuSelector
         //menuTypeSelector
     }

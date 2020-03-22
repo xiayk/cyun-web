@@ -39,8 +39,8 @@
                     <Radio :label=1>禁用</Radio>
                 </RadioGroup>
             </FormItem>
-            <FormItem label="分配给角色" prop="roleIds">
-                <manager-role-selector isSingle v-model="form.roleIds"></manager-role-selector>
+            <FormItem label="角色配置" prop="roleIds">
+                <menu-role-selector isSingle v-model="form.roleIds"></menu-role-selector>
             </FormItem>
             <FormItem>
                 <Button type="primary" :loading="loading" html-type="submit">提交</Button>
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import managerRoleSelector from "components/manager-role-selector";
+import menuRoleSelector from "components/menu-role-selector";
 import menuSelector from "components/menu-selector";
 import menuTypeSelector from "components/menu-type-selector";
 import { addOrUpdateMenu, getMenuDetail } from "@/actions/sys";
@@ -117,7 +117,7 @@ export default {
         }
     },
     components: {
-        managerRoleSelector,
+        nemuRoleSelector,
         menuSelector,
         menuTypeSelector
     }

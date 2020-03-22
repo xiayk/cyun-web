@@ -23,7 +23,7 @@
                     <Radio :label=1>禁用</Radio>
                 </RadioGroup>
             </FormItem>
-            <FormItem label="权限配置" prop="menuIds">
+            <FormItem label="菜单配置" prop="menuIds">
                 <menu-tree-selector
                     :role-id="$route.params.id"
                     :menu-ids.sync="form.menuIds"

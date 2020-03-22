@@ -24,7 +24,7 @@
             <!-- <FormItem label="身份证号" prop="certificateNo" >
                 <Input v-model="form.certificateNo" placeholder="身份证号"></Input>
             </FormItem>-->
-            <FormItem label="所属角色" prop="roleIds">
+            <FormItem label="角色配置" prop="roleIds">
                 <manager-role-selector v-model="form.roleId"></manager-role-selector>
             </FormItem>
             <FormItem label="状态" prop="state">

@@ -27,7 +27,7 @@
       <FormItem label="手机号码" prop="phone">
         <Input v-model="form.phone" placeholder="手机号码"></Input>
       </FormItem>
-      <FormItem label="所属角色" prop="roleIds">
+      <FormItem label="角色配置" prop="roleIds">
         <manager-role-selector v-model="form.roleId"></manager-role-selector>
       </FormItem>
       <FormItem label="状态" prop="status">

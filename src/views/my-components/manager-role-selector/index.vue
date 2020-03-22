@@ -1,9 +1,6 @@
 <template>
     <div>
-        <CheckboxGroup v-if="isSingle" v-model="currentValue" size="small" @on-change="handleChange">
-        <Checkbox :disabled="item.disabled" :label="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Checkbox>
-    </CheckboxGroup>
-    <RadioGroup v-else v-model="currentValue" size="small" @on-change="handleChange">
+    <RadioGroup v-model="currentValue" size="small" @on-change="handleChange">
         <Radio :disabled="item.disabled" :label="item.value" v-for="item in data" :key="item.value">{{ item.label }}</Radio>
     </RadioGroup>
     </div>
@@ -15,9 +12,9 @@ export default {
     name: "manager-role-selector",
     props: {
         value: {
-            type: Array,
+            type: String, 
             default: function() {
-                return []
+                return ""
             }
         },
         isSingle: {
