@@ -19,6 +19,7 @@
         <Table :loading="loading" border stripe :columns="columns" :data="data"></Table>
         <pagination :total="total" :limit.sync="filter.limit" :offset.sync="filter.offset" @on-load="loadData"></pagination>
     </div>
+    
 </template>
 
 <script>
