@@ -25,9 +25,9 @@
                                 </span>
                             </Input>
                         </FormItem>
-                        <FormItem prop="remember">
+                        <!-- <FormItem prop="remember">
                             <Checkbox v-model="form.remember">记住密码</Checkbox>
-                        </FormItem>
+                        </FormItem> -->
                         <FormItem>
                             <Button @click="handleSubmit" :loading="loading" type="primary" long>登录</Button>
                         </FormItem>
