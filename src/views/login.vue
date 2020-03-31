@@ -72,11 +72,13 @@ export default {
                         res => {
                             this.loading = false;
                             this.zbRoleDetail(res.data);
-                            Cookies.set("token", res.data);
-                            getUserInfo().then(res => {
-                                this.$store.state.user.userInfo = res.data
+                            Cookies.set("token", res.data.token);
+                            this.$store.state.user.userInfo = res.data
                                 Cookies.set("user", JSON.stringify(res.data));
-                            })
+                            // getUserInfo().then(res => {
+                            //     this.$store.state.user.userInfo = res.data
+                            //     Cookies.set("user", JSON.stringify(res.data));
+                            // })
                             // if (this.form.remember) {
                             //     // localStorage.setItem(
                             //     //     "lf_user",
