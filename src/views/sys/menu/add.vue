@@ -57,14 +57,10 @@ import { addOrUpdateMenu, getMenuDetail } from "@/actions/sys";
 import { validateData } from "./validate";
 import { closeCurrentErrPage } from "@/constants/constant";
 let defaultForm = {
-    code: "",
-    name: "",
-    image: "",
-    url: "",
     types: "1",
     rank: "1",
     parentId: "0",
-    roleIds: ""
+    roleIds: []
 };
 export default {
     name: "sys-menu-add",
@@ -117,7 +113,7 @@ export default {
         }
     },
     components: {
-        nemuRoleSelector,
+        menuRoleSelector,
         menuSelector,
         menuTypeSelector
     }

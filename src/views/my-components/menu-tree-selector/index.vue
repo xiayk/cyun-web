@@ -5,7 +5,7 @@
 import { getSysMenuTree } from "@/actions/selector";
 export default {
     name: "menu-tree-selector",
-    props: { 
+    props: {
         roleId: {
             type: [String, Number],
             default: ""
@@ -40,16 +40,15 @@ export default {
                 getSysMenuTree(this.roleId).then(res => {
                     this.currentMenuIds = res.data;
                     console.log("role", res.data);
-                    // this.data = res.data;
-                    // this.formatTreeData(res.data);
+                    this.data = res.data;
+                    this.formatTreeData(res.data);
+                });
+            } else {
+                getSysMenuTree().then(res => {
+                    this.data = res.data;
+                    this.formatTreeData(res.data);
                 });
             }
-            // } else {
-            getSysMenuTree().then(res => {
-                this.data = res.data;
-                this.formatTreeData(res.data);
-            });
-            // }
         },
         handleCheck(arr) {
             this.formatSelectData(arr);
@@ -60,23 +59,26 @@ export default {
                 functionIds = [];
             arr &&
                 arr.forEach(v1 => {
+                    console.log(v1)
                     if (v1.parentId === "0") {
                         menuIds.push(v1.id);
                         v1.childrens.forEach(v2 => {
-                            if (v2.types === "1") {
-                                menuIds.push(v2.id);
-                                // v2.nodes.forEach(v3 => {
-                                //     if (v3.types === "1") {
-                                //         menuIds.push(v3.id);
-                                //     }
-                                //     if (v3.types === "2") {
-                                //         functionIds.push(v3.id);
-                                //     }
-                                // });
-                            }
-                            if (v2.types === "2") {
-                                functionIds.push(v2.id);
-                            }
+                            menuIds.push(v2.id);
+                            // if (v2.types === "1") {
+                            //     menuIds.push(v2.id);
+                                
+                            //     // v2.nodes.forEach(v3 => {
+                            //     //     if (v3.types === "1") {
+                            //     //         menuIds.push(v3.id);
+                            //     //     }
+                            //     //     if (v3.types === "2") {
+                            //     //         functionIds.push(v3.id);
+                            //     //     }
+                            //     // });
+                            // }
+                            // if (v2.types === "2") {
+                            //     functionIds.push(v2.id);
+                            // }
                         });
                     }
                     if (v1.types === "2") {
@@ -89,23 +91,23 @@ export default {
         //格式化树形数据
         formatTreeData(data) {
             let _this = this;
-            data &&
+            data && 
                 data.forEach(v1 => {
                     v1.title = v1.menuName;
                     v1.children = v1.childrens;
                     v1.disabled = v1.status === 1;
-                    if (_this.currentMenuIds.length) {
-                        _this.currentMenuIds.forEach(vv => {
-                            if (v1.parentId == "0" && v1.id == vv.id) {
-                                v1.checked = true
-                            }else{
-                                
-                            v1.checked = vv.id == v1.id;
-                            }
-                            console.log("v1", v1.id, "vv", vv.id);
-                        });
-                    }
-                    console.log("v1", v1.checked, "name", v1.menuName);
+                    // if (_this.currentMenuIds.length) {
+                    //     _this.currentMenuIds.forEach(vv => {
+                    //         v1.checked = vv.checked;
+                    //         // if (v1.parentId == "0" && v1.id == vv.id) {
+                    //         //     v1.checked = true
+                    //         // }else{
+                    //         // v1.checked = vv.id == v1.id;
+                    //         // }
+                    //         console.log("v1", v1.id, "vv", vv.id);
+                    //     });
+                    // }
+                    // console.log("v1", v1.checked, "name", v1.menuName);
                     // if (_this.currentMenuIds.length || _this.menuIds.length) {
                     //     if (
                     //         _this.currentMenuIds.includes(v1.id) ||
