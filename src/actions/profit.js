@@ -7,19 +7,26 @@ import $axios from "../constants/constant";
  * 分润管理 -- 日结列表
  * @param {*} params
  */
-export function getProfitDailyList(params) {
-    return $axios.post("/settle/profit/merchant/daily/collect", params);
+export function getStoreList(params) {
+    return $axios.post("/store/list", params);
 }
 
-export function getProfitDailyDetail(id, params) {
+export function getStoreDetail(id) {
     return $axios.post(
-        `/settle/profit/merchant/daily/collect/detail/${id}`,
-        params
+        `/store/detail/${id}`
     );
 }
 
-export function getProfitStoreList(params) {
-    return $axios.post(`/settle/profit/store/daily/collect`, params);
+export function delStore(id) {
+    return $axios.post(`/store/del/${id}`);
+}
+
+export function addStore(params) {
+    return $axios.post(`/store/add`, params);
+}
+
+export function updateStore(params) {
+    return $axios.post(`/store/edit`, params);
 }
 
 export function getProfitStoreDetail(id) {

@@ -66,11 +66,24 @@ export const otherRouter = {
             component: () => import("@/views/home/merchant.vue")
         },
         {
-            path: "merchant-form-data",
-            title: "商户渠道列表",
-            name: "merchant-form-data",
-            component: () => import("@/views/home/count.vue")
+            path: "group/store",
+            title: "商户列表",
+            name: "group-store",
+            component: () => import("@/views/store/index.vue")
         },
+        {
+            path: "group/store/add",
+            title: "添加商户",
+            name: "group-store-add",
+            component: () => import("@/views/store/add.vue")
+        },
+        {
+            path: "group/store/:id/edit",
+            title: "编辑商户",
+            name: "group-store-edit",
+            component: () => import("@/views/store/edit.vue")
+        },
+
         /*  {
              path: "home",
              title: "首页",
