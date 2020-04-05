@@ -22,7 +22,7 @@ export function delStore(id) {
 }
 
 export function addStore(params) {
-    return $axios.post(`/store/add`, params);
+    return $axios.post(`/store/save`, params);
 }
 
 export function updateStore(params) {
