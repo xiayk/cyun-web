@@ -12,14 +12,20 @@
             label-position="right"
             :rules="rules"
         >
-            <FormItem label="商户账号" prop="storeName">
+            <FormItem label="商户名称" prop="storeName">
                 <Input v-model="form.storeName" placeholder="商户账号" />
             </FormItem>
-            <FormItem label="姓名" prop="storeNick">
+            <FormItem label="商户昵称" prop="storeNick">
                 <Input v-model="form.storeNick" placeholder="姓名"></Input>
             </FormItem>
-            <FormItem label="手机号码" prop="phone">
+            <FormItem label="电话号码" prop="phone">
                 <Input v-model="form.phone" placeholder="手机号码"></Input>
+            </FormItem>
+            <FormItem label="登录账号" prop="account">
+                <Input v-model="form.account" placeholder="登录账号"></Input>
+            </FormItem>
+            <FormItem label="登录密码" prop="password">
+                <Input v-model="form.password" type="password" placeholder="登录密码"></Input>
             </FormItem>
             <FormItem label="状态" prop="status">
                 <RadioGroup v-model="form.storeStatus">
@@ -41,7 +47,9 @@ let defaultForm = {
     storeName: "",
     phone: "",
     storeNick: "",
-    storeStatus: 0
+    storeStatus: 0,
+    account: "",
+    password: ""
 };
 export default {
     name: "group-store-add",
@@ -52,7 +60,9 @@ export default {
                 storeName: "",
                 phone: "",
                 storeNick: "",
-                storeStatus: 0
+                storeStatus: 0,
+                account: "",
+                password: ""
             },
             storeList: [],
             rules: {
@@ -62,7 +72,6 @@ export default {
                         message: "请输入商户账号",
                         trigger: "blur"
                     }
-                    
                 ],
                 storeNick: [
                     {
@@ -70,7 +79,6 @@ export default {
                         message: "请输入名称",
                         trigger: "blur"
                     }
-                    
                 ]
             }
         };
