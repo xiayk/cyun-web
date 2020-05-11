@@ -6998,10 +6998,10 @@ tinycolor2@^1.4.1:
   resolved "http://registry.npm.taobao.org/tinycolor2/download/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
 
-tinymce@^4.7.4:
-  version "4.7.9"
-  resolved "http://registry.npm.taobao.org/tinymce/download/tinymce-4.7.9.tgz#2f14934cf42ab20e6d081fd282842c24aecf1866"
-  integrity sha512-JGN0Hn8cYINgyHTw6ztnO086hez4SIWbkny+3S5tesyvggNFg6He1GSIHPZgSB3+ydCqO8J6qhjGSIyi0LPwpQ==
+tinymce@^4.9.10:
+  version "4.9.10"
+  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-4.9.10.tgz#47bd7b4d27d80d53a464356eb7c72b97e5c3aadd"
+  integrity sha512-vyzGG04Q44Y7zWIKA4c+G7MxMCsed6JkrhU+k0TaDs9XKAiS+e+D3Fzz5OIJ7p5keF7lbRK5czgI8T1JtouZqw==
 
 title-case@^2.1.0:
   version "2.1.1"
